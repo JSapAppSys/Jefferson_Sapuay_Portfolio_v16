@@ -1,0 +1,1 @@
+document.querySelectorAll('.screen-tabs a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.screen-tabs a').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));

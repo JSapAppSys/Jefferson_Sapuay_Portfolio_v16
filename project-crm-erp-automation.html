@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CRM & ERP Automation case study by Jefferson Sapuay — monday.com, Zapier and Oracle NetSuite lead-to-loan workflow integration.">
+  <title>CRM & ERP Automation | Jefferson Sapuay</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/project-detail.css">
+
+  <style>
+    :root{
+      --crm-navy:#06172f;
+      --crm-navy-2:#0b2547;
+      --crm-blue:#1473e6;
+      --crm-blue-2:#53a3ff;
+      --crm-orange:#ff7a1a;
+      --crm-ink:#0d1b2f;
+      --crm-muted:#64748b;
+      --crm-line:#dfe7f1;
+      --crm-soft:#f5f8fc;
+      --crm-soft-blue:#eef5ff;
+      --crm-white:#fff;
+    }
+
+    .crm-page{background:#fff;color:var(--crm-ink)}
+    .crm-page .container{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+
+    .crm-hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 82% 18%,rgba(48,139,255,.18),transparent 30%),
+        linear-gradient(135deg,#051329 0%,#082449 56%,#06182f 100%);
+      color:#fff;
+      padding:72px 0 48px;
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .crm-hero:before{
+      content:"";
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(87,147,213,.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(87,147,213,.06) 1px,transparent 1px);
+      background-size:64px 64px;
+      mask-image:linear-gradient(to right,#000,transparent 88%);
+      pointer-events:none
+    }
+    .crm-hero-grid{
+      position:relative;z-index:1;
+      display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);
+      gap:56px;align-items:center
+    }
+    .crm-back{
+      display:inline-flex;color:#8fc1ff;text-decoration:none;font-size:.9rem;
+      margin-bottom:28px
+    }
+    .crm-kicker{
+      display:block;color:#79b6ff;letter-spacing:.16em;text-transform:uppercase;
+      font-size:.72rem;font-weight:800;margin-bottom:14px
+    }
+    .crm-hero h1{
+      font-family:Manrope,Inter,sans-serif;
+      font-size:clamp(2.6rem,5vw,5.2rem);line-height:.96;letter-spacing:-.05em;
+      margin:0 0 16px;max-width:760px
+    }
+    .crm-hero h1 em{font-style:normal;color:#56a3ff}
+    .crm-hero h2{
+      font:600 clamp(1.15rem,2vw,1.7rem)/1.35 Inter,sans-serif;
+      color:#dceaff;margin:0 0 20px;max-width:720px
+    }
+    .crm-hero p{
+      max-width:700px;color:#b9c9dd;line-height:1.75;font-size:1rem;margin:0
+    }
+    .crm-tags{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 30px}
+    .crm-tags span{
+      border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);
+      border-radius:999px;padding:8px 12px;font-size:.75rem;color:#dceaff
+    }
+    .crm-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .crm-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 18px;border-radius:8px;text-decoration:none;font-weight:700;
+      font-size:.9rem
+    }
+    .crm-btn.primary{background:#1473e6;color:#fff}
+    .crm-btn.secondary{border:1px solid rgba(255,255,255,.25);color:#fff}
+
+    .crm-hero-visual{position:relative}
+    .crm-hero-visual img{
+      width:100%;display:block;border-radius:14px;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 24px 70px rgba(0,0,0,.34)
+    }
+    .crm-hero-visual:after{
+      content:"Lead → Qualification → Assessment → Approval → ERP → Release";
+      position:absolute;left:18px;right:18px;bottom:18px;
+      padding:12px 14px;border-radius:8px;
+      background:rgba(5,19,41,.88);backdrop-filter:blur(10px);
+      color:#dceaff;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase
+    }
+
+    .crm-snapshot{background:#fff;border-bottom:1px solid var(--crm-line)}
+    .crm-snapshot-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:0;padding:0
+    }
+    .crm-snapshot-item{
+      padding:26px 24px;border-right:1px solid var(--crm-line)
+    }
+    .crm-snapshot-item:first-child{border-left:1px solid var(--crm-line)}
+    .crm-snapshot-item small{
+      display:block;color:#7a8798;text-transform:uppercase;letter-spacing:.09em;
+      font-size:.67rem;font-weight:800;margin-bottom:8px
+    }
+    .crm-snapshot-item strong{font-size:.92rem;line-height:1.5;display:block}
+
+    .crm-section{padding:82px 0}
+    .crm-section.soft{background:var(--crm-soft)}
+    .crm-section.dark{background:var(--crm-navy);color:#fff}
+    .crm-section-head{max-width:780px;margin-bottom:40px}
+    .crm-section-label{
+      display:flex;align-items:center;gap:10px;color:var(--crm-blue);
+      text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.7rem;
+      margin-bottom:12px
+    }
+    .crm-section-label:after{content:"";width:44px;height:2px;background:var(--crm-blue)}
+    .crm-section.dark .crm-section-label{color:#7eb7ff}
+    .crm-section.dark .crm-section-label:after{background:#7eb7ff}
+    .crm-section h2{
+      font-family:Manrope,Inter,sans-serif;font-size:clamp(2rem,4vw,3.4rem);
+      line-height:1.05;letter-spacing:-.04em;margin:0 0 14px
+    }
+    .crm-section-head p,.crm-copy p{color:var(--crm-muted);line-height:1.75;margin:0}
+    .crm-section.dark .crm-section-head p,.crm-section.dark .crm-copy p{color:#b8c9dc}
+
+    .crm-two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .crm-editorial{border-top:1px solid var(--crm-line);padding-top:22px}
+    .crm-editorial h3{font-size:1.2rem;margin:0 0 10px}
+    .crm-editorial p{color:var(--crm-muted);line-height:1.75}
+    .crm-list{
+      list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px
+    }
+    .crm-list li{
+      position:relative;padding-left:20px;color:#344256;line-height:1.55
+    }
+    .crm-list li:before{
+      content:"";position:absolute;left:0;top:.65em;width:7px;height:7px;
+      border-radius:50%;background:var(--crm-blue)
+    }
+
+    .crm-role-panel{
+      border:1px solid var(--crm-line);background:#fff;border-radius:12px;padding:28px
+    }
+    .crm-role-panel h3{margin:0 0 18px}
+    .crm-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .crm-role-grid div{border-top:1px solid var(--crm-line);padding-top:14px}
+    .crm-role-grid small{
+      display:block;color:#7b8797;text-transform:uppercase;letter-spacing:.08em;
+      font-size:.65rem;font-weight:800;margin-bottom:5px
+    }
+    .crm-role-grid strong{font-size:.88rem;line-height:1.45}
+
+    .crm-process{
+      display:grid;grid-template-columns:repeat(6,1fr);gap:12px;
+      counter-reset:stage
+    }
+    .crm-process article{
+      position:relative;background:#fff;border:1px solid var(--crm-line);
+      min-height:250px;padding:22px 18px;border-radius:10px;overflow:hidden
+    }
+    .crm-process article:before{
+      counter-increment:stage;content:"0" counter(stage);
+      font:800 2.6rem/1 Manrope,sans-serif;color:#e8eef7;
+      position:absolute;right:14px;top:14px
+    }
+    .crm-process span{
+      display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;
+      border-radius:8px;background:var(--crm-soft-blue);color:var(--crm-blue);
+      font-weight:800;margin-bottom:58px
+    }
+    .crm-process h3{font-size:1rem;margin:0 0 8px}
+    .crm-process p{font-size:.83rem;color:var(--crm-muted);line-height:1.55;margin:0}
+    .crm-process article:not(:last-child):after{
+      content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);
+      color:var(--crm-blue);z-index:3;font-weight:800
+    }
+
+    .crm-architecture{
+      display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+      gap:16px;align-items:center
+    }
+    .crm-arch-node{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);border-radius:10px;padding:20px;min-height:160px
+    }
+    .crm-arch-node small{
+      display:block;color:#7eb7ff;text-transform:uppercase;letter-spacing:.1em;
+      font-size:.65rem;font-weight:800;margin-bottom:12px
+    }
+    .crm-arch-node h3{margin:0 0 8px;font-size:1rem}
+    .crm-arch-node p{font-size:.8rem;color:#b8c9dc;line-height:1.6;margin:0}
+    .crm-arch-arrow{color:#58a4ff;font-size:1.5rem}
+
+    .crm-gallery-nav{
+      display:flex;gap:8px;overflow:auto;padding-bottom:8px;margin-bottom:26px;
+      scrollbar-width:thin
+    }
+    .crm-gallery-nav a{
+      flex:0 0 auto;text-decoration:none;border:1px solid var(--crm-line);
+      color:#344256;background:#fff;border-radius:7px;padding:9px 12px;font-size:.76rem;font-weight:700
+    }
+    .crm-gallery{display:grid;gap:34px}
+    .crm-shot{
+      margin:0;border:1px solid var(--crm-line);background:#fff;border-radius:12px;
+      overflow:hidden;box-shadow:0 10px 30px rgba(12,35,66,.05)
+    }
+    .crm-shot-head{
+      display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+      padding:18px 20px;border-bottom:1px solid var(--crm-line)
+    }
+    .crm-shot-head span{
+      display:inline-grid;place-items:center;width:32px;height:32px;border-radius:7px;
+      background:var(--crm-navy);color:#fff;font-size:.72rem;font-weight:800
+    }
+    .crm-shot-head h3{margin:0;font-size:1rem}
+    .crm-shot-head small{
+      color:#7b8797;text-transform:uppercase;letter-spacing:.08em;font-size:.63rem;font-weight:800
+    }
+    .crm-shot img{width:100%;display:block;background:#eef3f9}
+    .crm-shot figcaption{
+      padding:16px 20px;color:#5e6c7e;font-size:.84rem;line-height:1.6;
+      border-top:1px solid var(--crm-line)
+    }
+
+    .crm-module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .crm-module{
+      border-top:2px solid var(--crm-blue);background:#fff;padding:22px 0 0
+    }
+    .crm-module small{color:var(--crm-blue);font-weight:800;font-size:.68rem}
+    .crm-module h3{font-size:1rem;margin:8px 0}
+    .crm-module p{font-size:.84rem;color:var(--crm-muted);line-height:1.6;margin:0}
+
+    .crm-value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .crm-value{
+      border-top:1px solid rgba(255,255,255,.18);padding-top:20px
+    }
+    .crm-value b{display:block;color:#7eb7ff;font-size:.75rem;margin-bottom:10px}
+    .crm-value h3{font-size:1rem;margin:0 0 8px}
+    .crm-value p{font-size:.82rem;color:#b8c9dc;line-height:1.6;margin:0}
+
+    .crm-related{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .crm-related a{
+      text-decoration:none;color:inherit;border:1px solid var(--crm-line);
+      border-radius:10px;overflow:hidden;background:#fff
+    }
+    .crm-related img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+    .crm-related div{padding:16px}
+    .crm-related small{color:var(--crm-blue);font-weight:700}
+    .crm-related h3{font-size:1rem;margin:7px 0 5px}
+    .crm-related p{font-size:.8rem;color:var(--crm-muted);margin:0 0 10px;line-height:1.5}
+    .crm-related strong{font-size:.78rem;color:var(--crm-blue)}
+
+    .crm-contact{
+      background:linear-gradient(135deg,#06172f,#0b315c);color:#fff;padding:52px 0
+    }
+    .crm-contact-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:30px
+    }
+    .crm-contact small{color:#7eb7ff;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .crm-contact h2{font:800 clamp(1.6rem,3vw,2.7rem)/1.1 Manrope;margin:8px 0}
+    .crm-contact p{color:#b8c9dc;margin:0}
+
+    @media (max-width:1100px){
+      .crm-hero-grid{grid-template-columns:1fr;gap:36px}
+      .crm-hero-visual{max-width:900px}
+      .crm-snapshot-grid{grid-template-columns:repeat(2,1fr)}
+      .crm-process{grid-template-columns:repeat(3,1fr)}
+      .crm-architecture{grid-template-columns:1fr;gap:10px}
+      .crm-arch-arrow{transform:rotate(90deg);justify-self:center}
+      .crm-module-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:760px){
+      .crm-page .container{width:min(100% - 28px,1180px)}
+      .crm-hero{padding:48px 0 34px}
+      .crm-hero-grid{display:block}
+      .crm-hero-visual{margin-top:34px}
+      .crm-snapshot-grid{grid-template-columns:1fr}
+      .crm-snapshot-item,.crm-snapshot-item:first-child{
+        border-left:0;border-right:0;border-bottom:1px solid var(--crm-line)
+      }
+      .crm-section{padding:58px 0}
+      .crm-two-col{grid-template-columns:1fr;gap:28px}
+      .crm-process{grid-template-columns:1fr}
+      .crm-process article{min-height:auto}
+      .crm-process article:not(:last-child):after{display:none}
+      .crm-process span{margin-bottom:26px}
+      .crm-role-grid{grid-template-columns:1fr}
+      .crm-shot-head{grid-template-columns:auto 1fr}
+      .crm-shot-head small{grid-column:2}
+      .crm-module-grid,.crm-value-grid,.crm-related{grid-template-columns:1fr}
+      .crm-contact-inner{display:block}
+      .crm-contact .crm-btn{margin-top:22px}
+    }
+  </style>
+</head>
+
+<body class="project-detail-page crm-page">
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">JS</span>
+      <span class="brand-text"><strong>JEFFERSON SAPUAY</strong><small>IT FUNCTIONAL CONSULTANT</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-menu">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a class="active" href="projects.html">Projects</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#certifications">Certifications</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="nav-cta">Let's Connect →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="crm-hero">
+    <div class="container crm-hero-grid">
+      <div>
+        <a class="crm-back" href="projects.html">← Back to Projects</a>
+        <span class="crm-kicker">Zenith Capital · Business Process Automation & Systems Integration</span>
+        <h1>CRM &amp; ERP <em>Automation</em></h1>
+        <h2>monday.com &amp; Zapier Lead-to-Loan Workflow Integration</h2>
+        <p>
+          A large-scale workflow integration designed around the complete lending operation—from lead capture and qualification through document turn-in, credit assessment, approvals, Oracle NetSuite handoff, loan releasing, notifications, scheduling, and management visibility.
+        </p>
+        <div class="crm-tags">
+          <span>Lead Management</span>
+          <span>Workflow Automation</span>
+          <span>CRM Operations</span>
+          <span>ERP Handoff</span>
+          <span>Process Design</span>
+          <span>Systems Integration</span>
+        </div>
+        <div class="crm-actions">
+          <a class="crm-btn primary" href="#workflow">Explore the Workflow →</a>
+          <a class="crm-btn secondary" href="#screens">View Project Screens</a>
+        </div>
+      </div>
+
+      <div class="crm-hero-visual">
+        <img src="assets/images/projects-real/crm-lead-to-loan.png" alt="Zenith Capital end-to-end lead-to-loan process flow">
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-snapshot">
+    <div class="container crm-snapshot-grid">
+      <div class="crm-snapshot-item">
+        <small>Project Type</small>
+        <strong>CRM, ERP &amp; Workflow Integration</strong>
+      </div>
+      <div class="crm-snapshot-item">
+        <small>Primary Platforms</small>
+        <strong>monday.com · Zapier · Oracle NetSuite</strong>
+      </div>
+      <div class="crm-snapshot-item">
+        <small>Operational Scope</small>
+        <strong>Lead Capture to Loan Release</strong>
+      </div>
+      <div class="crm-snapshot-item">
+        <small>My Contribution</small>
+        <strong>Process Mapping · Functional Design · Automation Architecture · Integration Planning</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Project Context</div>
+        <h2>Automation built around the lending operation—not around the tools.</h2>
+        <p>
+          The work started from the operational process: where leads originate, who owns each stage, what information is required, how documents move, where approvals happen, and when data must cross into ERP processing.
+        </p>
+      </div>
+
+      <div class="crm-two-col">
+        <div class="crm-editorial">
+          <h3>The Operational Challenge</h3>
+          <p>
+            Lead-to-loan processing spans multiple teams and systems. Marketing sources create inquiries, telesales qualifies them, borrowers submit documents, DBR performs staged credit assessment, approvers review qualified applications, and loan operations completes the releasing process. Without a controlled workflow, ownership and status can become fragmented between boards, messages, files, and follow-ups.
+          </p>
+          <ul class="crm-list">
+            <li>Multiple lead sources entering the operation through different channels</li>
+            <li>Manual routing and repetitive follow-up between sales and operations</li>
+            <li>Document completeness and turn-in status requiring continuous monitoring</li>
+            <li>Several credit assessment and approval stages with different outcomes</li>
+            <li>Declined, incomplete, and reprocessing cases needing separate paths</li>
+            <li>Approved records requiring structured handoff to ERP and releasing</li>
+          </ul>
+        </div>
+
+        <div class="crm-role-panel">
+          <h3>My Role in the Project</h3>
+          <div class="crm-role-grid">
+            <div><small>Business Analysis</small><strong>Mapped the actual operating process, handoffs, exceptions, and required status transitions.</strong></div>
+            <div><small>Functional Design</small><strong>Translated process requirements into boards, stages, rules, notifications, and workflow logic.</strong></div>
+            <div><small>Automation Design</small><strong>Designed Zapier-triggered routing, synchronization, notifications, and cross-system actions.</strong></div>
+            <div><small>Integration Planning</small><strong>Defined how monday.com, Google Workspace, and Oracle NetSuite participate in the process.</strong></div>
+            <div><small>Governance</small><strong>Structured ownership, approval paths, exception handling, and status accountability.</strong></div>
+            <div><small>Systems Thinking</small><strong>Kept the solution focused on operational continuity rather than isolated automation steps.</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section soft" id="workflow">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">End-to-End Workflow</div>
+        <h2>One operating flow across six business stages.</h2>
+        <p>
+          Each stage has defined ownership, status logic, handoff conditions, and exception paths. The design connects CRM activity to downstream operational and ERP actions.
+        </p>
+      </div>
+
+      <div class="crm-process">
+        <article>
+          <span>01</span>
+          <h3>Lead Generation</h3>
+          <p>Capture inquiries from Facebook, Google, websites, third parties, referrals, and other lead channels.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Automation &amp; Assignment</h3>
+          <p>Validate incoming data, create CRM records, assign ownership, and trigger round-robin distribution.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Telesales &amp; Turn-In</h3>
+          <p>Qualify leads, request documents, track completeness, and prepare applications for assessment.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>DBR Assessment</h3>
+          <p>Move qualified applications through staged credit review, compliance checks, decisions, and reprocessing.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <h3>Approval</h3>
+          <p>Route approved assessments to the approval board, notify the appropriate teams, and prepare ERP handoff.</p>
+        </article>
+        <article>
+          <span>06</span>
+          <h3>Release &amp; Availed</h3>
+          <p>Generate quotation data, synchronize status, release approved loans, and track final availed or cancelled outcomes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section dark">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Integration Architecture</div>
+        <h2>Connected systems with clear responsibilities.</h2>
+        <p>
+          The architecture separates lead capture, workflow orchestration, operational tracking, document support, and ERP processing while keeping status changes synchronized across the process.
+        </p>
+      </div>
+
+      <div class="crm-architecture">
+        <div class="crm-arch-node">
+          <small>Sources</small>
+          <h3>Lead Channels</h3>
+          <p>Facebook / Instagram, Google Ads, website forms, referral sources, third parties, and manually entered leads.</p>
+        </div>
+        <div class="crm-arch-arrow">→</div>
+        <div class="crm-arch-node">
+          <small>Automation Layer</small>
+          <h3>Zapier</h3>
+          <p>Webhook processing, validation, field mapping, routing, notification triggers, synchronization, and activity logging.</p>
+        </div>
+        <div class="crm-arch-arrow">→</div>
+        <div class="crm-arch-node">
+          <small>Operational System</small>
+          <h3>monday.com</h3>
+          <p>Lead management, status tracking, qualification, turn-in, assessment, approvals, queues, ownership, and reporting views.</p>
+        </div>
+        <div class="crm-arch-arrow">→</div>
+        <div class="crm-arch-node">
+          <small>ERP / Business Processing</small>
+          <h3>Oracle NetSuite</h3>
+          <p>Approved record handoff, quotation or PN generation, ERP-side processing, and status synchronization toward releasing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Functional Scope</div>
+        <h2>The project is more than a CRM board or a set of Zaps.</h2>
+        <p>It is an operational workflow model that coordinates people, process rules, information, approvals, notifications, and systems.</p>
+      </div>
+
+      <div class="crm-module-grid">
+        <article class="crm-module"><small>01</small><h3>Lead Source &amp; Capture</h3><p>Standardizes incoming lead information before it enters the CRM workflow.</p></article>
+        <article class="crm-module"><small>02</small><h3>Round-Robin Assignment</h3><p>Routes new leads to available telesales agents with defined assignment logic.</p></article>
+        <article class="crm-module"><small>03</small><h3>Qualification &amp; Assessment</h3><p>Provides a visible stage model from initial contact through qualification and review readiness.</p></article>
+        <article class="crm-module"><small>04</small><h3>Document Turn-In Tracking</h3><p>Tracks required borrower documents, completeness, corrections, and outstanding items.</p></article>
+        <article class="crm-module"><small>05</small><h3>DBR / Credit Assessment</h3><p>Supports multiple assessment levels, compliance checks, approval, decline, and reprocess outcomes.</p></article>
+        <article class="crm-module"><small>06</small><h3>Approval Workflow</h3><p>Moves qualified applications into the formal review and approval stage with accountable ownership.</p></article>
+        <article class="crm-module"><small>07</small><h3>Reprocessing &amp; Declines</h3><p>Separates incomplete, declined, remarketing, and executive-decline scenarios into controlled next actions.</p></article>
+        <article class="crm-module"><small>08</small><h3>Email / Notification Automation</h3><p>Triggers operational and client communications from relevant workflow events.</p></article>
+        <article class="crm-module"><small>09</small><h3>Calendar &amp; Scheduling</h3><p>Coordinates meetings, reminders, follow-ups, and calendar-driven next actions.</p></article>
+        <article class="crm-module"><small>10</small><h3>CRM Pipeline Visibility</h3><p>Creates shared visibility over source, owner, status, priority, next action, and current stage.</p></article>
+        <article class="crm-module"><small>11</small><h3>NetSuite ERP Handoff</h3><p>Defines the controlled movement of approved records to Oracle NetSuite and the synchronized return of quotation status.</p></article>
+        <article class="crm-module"><small>12</small><h3>Reporting &amp; Exceptions</h3><p>Provides management views for pipeline status, bottlenecks, exceptions, turnaround, and operational follow-up.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section soft" id="screens">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Project Screens</div>
+        <h2>From process architecture to working operational views.</h2>
+        <p>
+          The screenshots below are organized in the same order as the business process so the case study reads as one connected system rather than a collection of unrelated interfaces.
+        </p>
+      </div>
+
+      <nav class="crm-gallery-nav">
+        <a href="#screen-01">Lead-to-Loan</a>
+        <a href="#screen-02">Zapier Flow</a>
+        <a href="#screen-03">Lead Capture</a>
+        <a href="#screen-04">Round Robin</a>
+        <a href="#screen-05">Lead Board</a>
+        <a href="#screen-06">Qualification</a>
+        <a href="#screen-07">Turn-In</a>
+        <a href="#screen-08">DBR</a>
+        <a href="#screen-09">Approvals</a>
+        <a href="#screen-10">Reprocess</a>
+        <a href="#screen-11">ERP Handoff</a>
+        <a href="#screen-12">Releasing</a>
+        <a href="#screen-13">Notifications</a>
+        <a href="#screen-14">Scheduling</a>
+        <a href="#screen-15">Pipeline</a>
+        <a href="#screen-16">Reporting</a>
+      </nav>
+
+      <div class="crm-gallery">
+        <figure class="crm-shot" id="screen-01">
+          <div class="crm-shot-head"><span>01</span><h3>Lead-to-Loan Process Flow</h3><small>End-to-End Architecture</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-lead-to-loan.png" alt="Zenith Capital lead-to-loan process flow">
+          <figcaption>The master operating model showing how lead sources, assignment, telesales, DBR, approvals, ERP processing, and loan releasing connect across the full process.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-02">
+          <div class="crm-shot-head"><span>02</span><h3>Zapier Automation / Integration Flow</h3><small>Automation Architecture</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-zapier-integration-flow.png" alt="Zapier automation and integration flow">
+          <figcaption>Shows the automation layer from lead capture and data mapping through monday.com record creation, notifications, document handling, NetSuite handoff, logging, and reporting.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-03">
+          <div class="crm-shot-head"><span>03</span><h3>Lead Source / Lead Capture Flow</h3><small>Acquisition</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-lead-source-capture.png" alt="Lead source and lead capture flow">
+          <figcaption>Standardizes how incoming inquiries are captured, validated, mapped, and routed into the operational workflow.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-04">
+          <div class="crm-shot-head"><span>04</span><h3>Lead Assignment / Round-Robin Automation</h3><small>Routing Logic</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-round-robin-assignment.png" alt="Lead assignment round-robin automation">
+          <figcaption>Automates assignment while preserving visibility over agent availability, workload, ownership, redistribution, and follow-up status.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-05">
+          <div class="crm-shot-head"><span>05</span><h3>monday.com Lead Management Board</h3><small>CRM Operations</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-lead-management-board.png" alt="monday.com lead management board">
+          <figcaption>The operational CRM board centralizing lead source, owner, status, priority, notes, next action, and downstream workflow movement.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-06">
+          <div class="crm-shot-head"><span>06</span><h3>Lead Qualification / Assessment Board</h3><small>Telesales</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-lead-qualification.png" alt="Lead qualification and assessment board">
+          <figcaption>Moves leads from initial contact through qualification, document request, completion, turn-in, and review readiness.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-07">
+          <div class="crm-shot-head"><span>07</span><h3>Document Request / Turn-In Tracking</h3><small>Document Control</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-document-turn-in.png" alt="Document request and turn-in tracking">
+          <figcaption>Tracks requested borrower documents, completeness, handler ownership, corrections, pending items, and submission status.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-08">
+          <div class="crm-shot-head"><span>08</span><h3>DBR / Credit Assessment Board</h3><small>Credit Review</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-dbr-credit-assessment.png" alt="DBR credit assessment board">
+          <figcaption>Supports staged assessment, compliance review, approval, decline, and reprocessing paths with visible ownership and decision status.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-09">
+          <div class="crm-shot-head"><span>09</span><h3>Approval Workflow</h3><small>Decision Control</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-approval-workflow.png" alt="Approval workflow">
+          <figcaption>Connects DBR-approved applications to a formal approval board, stakeholder notification, and the transition toward loan availed status.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-10">
+          <div class="crm-shot-head"><span>10</span><h3>Reprocessing / Declined Lead Workflow</h3><small>Exception Handling</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-reprocessing-declined.png" alt="Reprocessing and declined lead workflow">
+          <figcaption>Defines separate next actions for failed qualification, incomplete documents, declined assessment, executive decline, and remarketing scenarios.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-11">
+          <div class="crm-shot-head"><span>11</span><h3>Oracle NetSuite Quotation / ERP Handoff</h3><small>ERP Integration</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-netsuite-handoff.png" alt="Oracle NetSuite quotation ERP handoff">
+          <figcaption>Moves approved records into NetSuite processing, validates required ERP data, generates quotation references, and synchronizes status back to the operational workflow.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-12">
+          <div class="crm-shot-head"><span>12</span><h3>Loan Releasing / Availed Status Board</h3><small>Loan Operations</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-loan-releasing.png" alt="Loan releasing and availed status board">
+          <figcaption>Tracks approved loans from releasing through released, availed, completed, or cancelled outcomes while retaining NetSuite quotation references.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-13">
+          <div class="crm-shot-head"><span>13</span><h3>Email / Notification Automation</h3><small>Communication</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-email-notification.png" alt="Email and notification automation">
+          <figcaption>Automates communications around new leads, assignment, document requests, turn-ins, approvals, declines, and final loan-availment events.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-14">
+          <div class="crm-shot-head"><span>14</span><h3>Calendar / Scheduling Integration</h3><small>Follow-Up Management</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-calendar-scheduling.png" alt="Calendar and scheduling integration">
+          <figcaption>Coordinates meetings, reminders, follow-ups, calendar confirmations, and next actions across the sales and loan workflow.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-15">
+          <div class="crm-shot-head"><span>15</span><h3>CRM Pipeline / Status Tracking</h3><small>Operational Visibility</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-pipeline-status.png" alt="CRM pipeline and status tracking">
+          <figcaption>Provides a shared operational view of source, owner, priority, stage, next action, approvals, reprocessing, declines, and availed outcomes.</figcaption>
+        </figure>
+
+        <figure class="crm-shot" id="screen-16">
+          <div class="crm-shot-head"><span>16</span><h3>Workflow Dashboard / Reporting View</h3><small>Management Reporting</small></div>
+          <img loading="lazy" src="assets/images/projects-real/crm-reporting-dashboard.png" alt="Workflow dashboard and reporting view">
+          <figcaption>Brings together funnel visibility, stage distribution, source mix, assessment outcomes, exceptions, turnaround indicators, and operational follow-up.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section dark">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Operational Value</div>
+        <h2>What the solution was designed to improve.</h2>
+        <p>No invented ROI or performance claims—only the operational value directly supported by the workflow design.</p>
+      </div>
+
+      <div class="crm-value-grid">
+        <article class="crm-value"><b>01</b><h3>End-to-End Visibility</h3><p>Creates a shared view of where a lead or loan sits, who owns it, and what must happen next.</p></article>
+        <article class="crm-value"><b>02</b><h3>Consistent Routing</h3><p>Standardizes assignment and handoff logic across lead capture, qualification, assessment, and approvals.</p></article>
+        <article class="crm-value"><b>03</b><h3>Controlled Exceptions</h3><p>Gives incomplete, declined, reprocess, and remarketing cases defined next steps instead of ad hoc handling.</p></article>
+        <article class="crm-value"><b>04</b><h3>Cross-System Continuity</h3><p>Connects CRM-side activity with ERP-oriented quotation and releasing processes without treating each system as an isolated silo.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section">
+    <div class="container">
+      <div class="crm-section-head">
+        <div class="crm-section-label">Related Work</div>
+        <h2>Other systems built around operational problems.</h2>
+      </div>
+
+      <div class="crm-related">
+        <a href="project-insighttera-suite.html">
+          <img src="assets/images/projects-real/insighttera-analytics.png" alt="InsightTera Suite">
+          <div><small>Custom Integrated ERP</small><h3>InsightTera Suite</h3><p>Integrated business operations across multiple functional modules.</p><strong>View Project →</strong></div>
+        </a>
+
+        <a href="project-drs-2.html">
+          <img src="assets/images/projects-real/drs-dashboard.png" alt="DRS Client Document Record System 2.0">
+          <div><small>Document Management</small><h3>DRS Client Document Record System 2.0</h3><p>Structured document control, records visibility, workflow, and secure access.</p><strong>View Project →</strong></div>
+        </a>
+
+        <a href="project-itam-system.html">
+          <img src="assets/images/projects-real/itam-dashboard.png" alt="IT Asset Management System">
+          <div><small>IT Operations</small><h3>IT Asset Management System</h3><p>Complete hardware lifecycle tracking from issuance through maintenance and return.</p><strong>View Project →</strong></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-contact">
+    <div class="container crm-contact-inner">
+      <div>
+        <small>Have a similar operational challenge?</small>
+        <h2>Build the process first. Then make the technology support it.</h2>
+        <p>Workflow design, CRM/ERP integration, automation, systems implementation, and technology operations.</p>
+      </div>
+      <a class="crm-btn primary" href="index.html#contact">Get In Touch →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark">JS</span>
+      <span class="brand-text"><strong>Jefferson Sapuay</strong><small>IT Functional Consultant</small></span>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#certifications">Certifications</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <small>© <span id="year"></span> Jefferson Sapuay. All rights reserved.</small>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/project-detail.js"></script>
+</body>
+</html>
