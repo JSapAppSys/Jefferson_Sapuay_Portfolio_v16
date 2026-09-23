@@ -9,6 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+
+<style>
+/* Scoped redesign: AI Lead Qualification featured highlight only */
+.ai-lead-highlight-v2{position:relative;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:34px;padding:34px;border:1px solid #315276;border-left:5px solid #2b8cff;background:radial-gradient(circle at 78% 18%,rgba(28,116,255,.13),transparent 32%),linear-gradient(135deg,#08182e 0%,#0b213d 52%,#07172b 100%);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,.28)}
+.ai-lead-highlight-v2:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(83,158,255,.14) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 55%,#000 100%);pointer-events:none}
+.ai-lead-highlight-v2>*{position:relative;z-index:1;min-width:0}
+.ai-lead-highlight-copy{display:flex;flex-direction:column;justify-content:center;padding:6px 0}
+.ai-lead-eyebrow{display:flex;align-items:center;gap:12px;color:#65afff;font:800 .64rem/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;margin-bottom:20px}.ai-lead-eyebrow i{display:block;width:52px;height:2px;background:#2b8cff}
+.ai-lead-index{margin:0 0 12px;color:#6e96c9;font-size:.64rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.ai-lead-highlight-v2 h3{margin:0 0 16px;color:#fff;font:800 clamp(1.75rem,2.5vw,2.9rem)/1.04 Manrope,Inter,sans-serif;letter-spacing:-.035em;max-width:620px}
+.ai-lead-summary{margin:0 0 20px;max-width:620px;color:#c0d5ed;font-size:.88rem;line-height:1.65}
+.ai-lead-mini-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 18px}.ai-lead-mini-flow span{display:inline-flex;align-items:center;min-height:32px;padding:7px 10px;border:1px solid #325983;background:#0c2646;border-radius:8px;color:#e8f3ff;font-size:.62rem;font-weight:800}.ai-lead-mini-flow b{color:#4da0ff;font-size:.75rem}
+.ai-lead-tags{display:flex;flex-wrap:wrap;gap:7px;padding-top:16px;border-top:1px solid rgba(116,169,226,.2);margin-bottom:20px}.ai-lead-tags span{padding:7px 10px;border:1px solid #35567b;border-radius:999px;color:#c6ddf7;font-size:.64rem;font-weight:700;background:#0a1f39}
+.ai-lead-actions{display:flex;gap:10px;flex-wrap:wrap}.ai-lead-primary,.ai-lead-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 16px;text-decoration:none;border-radius:7px;font-size:.72rem;font-weight:800}.ai-lead-primary{background:#1680f4;color:#fff;box-shadow:0 12px 30px rgba(22,128,244,.28)}.ai-lead-secondary{border:1px solid #48729f;color:#cfe6ff;background:#0a203a}
+.ai-lead-preview{border:1px solid #315b89;border-radius:15px;background:linear-gradient(180deg,#0c2645,#081c35);padding:20px;box-shadow:inset 0 0 45px rgba(21,114,230,.05)}
+.ai-lead-preview-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}.ai-lead-preview-title{display:flex;align-items:center;gap:10px}.ai-lead-preview-title i{width:4px;height:38px;border-radius:999px;background:#2b8cff}.ai-lead-preview-title strong{display:block;color:#d7eaff;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}.ai-lead-preview-title small{display:block;color:#7ea3ce;font-size:.62rem;margin-top:4px}.ai-lead-live{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #247de5;border-radius:999px;color:#badcff;font-size:.61rem;white-space:nowrap}.ai-lead-live:before{content:"";width:8px;height:8px;border-radius:50%;background:#15d68a;box-shadow:0 0 12px #15d68a}
+.ai-lead-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;align-items:stretch;position:relative}.ai-map-node{min-width:0;border:1px solid #9dc9ff;border-radius:10px;background:#f7fbff;padding:12px 9px;text-align:center;color:#0a2645;box-shadow:0 10px 22px rgba(0,0,0,.16)}.ai-map-node .ico{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;margin:0 auto 8px;background:#eaf3ff;color:#197cf0;font-weight:900}.ai-map-node strong{display:block;font-size:.64rem;line-height:1.2}.ai-map-node small{display:block;margin-top:5px;color:#5c7390;font-size:.55rem;line-height:1.35}.ai-map-arrow{display:none}
+.ai-lead-branch{display:grid;grid-template-columns:1fr 112px 1fr;gap:12px;align-items:center;margin:18px 5% 0}.ai-requalify,.ai-outcome{border:1px solid #84baff;background:#f8fbff;border-radius:10px;padding:12px;text-align:center;color:#0b2849}.ai-requalify strong,.ai-outcome strong{display:block;font-size:.66rem}.ai-requalify small,.ai-outcome small{display:block;color:#607a99;font-size:.55rem;line-height:1.35;margin-top:5px}.ai-decision{width:82px;height:82px;margin:auto;transform:rotate(45deg);border:1px solid #40a0ff;background:#0b2747;border-radius:10px;display:grid;place-items:center}.ai-decision span{transform:rotate(-45deg);color:#dff0ff;font-size:.58rem;font-weight:800;text-align:center}.ai-loop-note{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:8px;color:#7fb8f7;font-size:.58rem}.ai-loop-note:before,.ai-loop-note:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#2f79bf)}.ai-loop-note:after{background:linear-gradient(90deg,#2f79bf,transparent)}
+.ai-lead-preview-foot{display:flex;justify-content:space-between;gap:16px;margin-top:18px;padding:14px 16px;border:1px solid #294f78;border-radius:10px;background:#08182f}.ai-lead-preview-foot small{display:block;color:#59a9ff;font-size:.56rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.ai-lead-preview-foot strong{display:block;margin-top:5px;color:#e2efff;font-size:.65rem;font-weight:700}.ai-impact{align-self:center;text-align:right;color:#6f98c4;font-size:.53rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:1100px){.ai-lead-highlight-v2{grid-template-columns:1fr}.ai-lead-highlight-v2 h3{max-width:760px}.ai-lead-preview{max-width:900px}.ai-lead-map{grid-template-columns:repeat(5,minmax(120px,1fr));overflow-x:auto;padding-bottom:8px}}
+@media(max-width:720px){.ai-lead-highlight-v2{padding:22px 16px}.ai-lead-highlight-v2 h3{font-size:clamp(1.7rem,8.5vw,2.35rem)}.ai-lead-preview{padding:14px}.ai-lead-preview-head{align-items:flex-start;flex-direction:column}.ai-lead-map{grid-template-columns:1fr 1fr;overflow:visible}.ai-lead-branch{grid-template-columns:1fr}.ai-decision{margin:4px auto}.ai-lead-preview-foot{display:block}.ai-impact{text-align:left;margin-top:12px;white-space:normal}.ai-lead-actions>a{width:100%}}
+</style>
+
 </head>
 <body>
   <header class="site-header">
@@ -156,161 +179,129 @@
       </div>
     </section>
 
-    <section class="section section-dark projects-section" id="projects">
+    <section class="section section-dark projects-section compact-project-showcase" id="projects">
+      <style>
+        .compact-project-showcase{padding:72px 0;background:linear-gradient(180deg,#07172b 0%,#061528 100%)}
+        .compact-project-showcase .project-showcase-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;margin-bottom:32px}
+        .compact-project-showcase .project-showcase-label{display:flex;align-items:center;gap:12px;color:#69b6ff;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+        .compact-project-showcase .project-showcase-label:after{content:"";width:52px;height:2px;background:#2389ff}
+        .compact-project-showcase .project-showcase-head h2{margin:0;color:#fff;font:800 clamp(2rem,3.4vw,3.25rem)/1.04 Manrope,Inter,sans-serif;letter-spacing:-.035em;max-width:760px}
+        .compact-project-showcase .project-showcase-head p{margin:12px 0 0;color:#a9bfd9;max-width:690px;line-height:1.7;font-size:.9rem}
+        .compact-project-showcase .project-showcase-all{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;color:#fff;text-decoration:none;border:1px solid #2d527f;border-radius:10px;padding:12px 15px;font-size:.76rem;font-weight:800;transition:.2s ease}
+        .compact-project-showcase .project-showcase-all:hover{border-color:#42a0ff;background:#0c2b4f;transform:translateY(-1px)}
+
+        .compact-project-showcase .featured-ai-card{display:grid;grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);gap:0;border:1px solid #28537f;border-left:4px solid #238cff;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#091c34 0%,#0a213e 100%);box-shadow:0 24px 70px rgba(0,0,0,.18);margin-bottom:24px}
+        .compact-project-showcase .featured-ai-copy{padding:30px 30px 28px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+        .compact-project-showcase .featured-ai-kicker{display:flex;align-items:center;gap:10px;color:#69b6ff;font-size:.64rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+        .compact-project-showcase .featured-ai-kicker i{display:block;width:38px;height:2px;background:#238cff}
+        .compact-project-showcase .featured-ai-copy h3{margin:0 0 12px;color:#fff;font:800 clamp(1.55rem,2.25vw,2.25rem)/1.08 Manrope,Inter,sans-serif;letter-spacing:-.025em}
+        .compact-project-showcase .featured-ai-copy p{margin:0;color:#b9cee4;font-size:.84rem;line-height:1.7;max-width:570px}
+        .compact-project-showcase .featured-ai-flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:18px 0}
+        .compact-project-showcase .featured-ai-flow span{padding:7px 9px;border:1px solid #315d8d;border-radius:7px;background:#0a2748;color:#d8eaff;font-size:.64rem;font-weight:700}
+        .compact-project-showcase .featured-ai-flow b{color:#4aa2ff;font-size:.72rem}
+        .compact-project-showcase .featured-ai-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:2px}
+        .compact-project-showcase .featured-ai-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:8px;padding:11px 14px;font-size:.72rem;font-weight:800}
+        .compact-project-showcase .featured-ai-actions .primary{background:#1682f8;color:#fff}.compact-project-showcase .featured-ai-actions .secondary{border:1px solid #315b88;color:#dcecff}
+        .compact-project-showcase .featured-ai-preview{position:relative;min-height:330px;padding:24px;background:radial-gradient(circle at 50% 15%,rgba(35,140,255,.12),transparent 45%),#06182f;border-left:1px solid #23496f;display:grid;align-content:center}
+        .compact-project-showcase .featured-ai-preview:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(91,165,244,.17) 1px,transparent 1px);background-size:18px 18px;opacity:.6;pointer-events:none}
+        .compact-project-showcase .preview-title{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;color:#e9f4ff}
+        .compact-project-showcase .preview-title strong{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}.compact-project-showcase .preview-title span{font-size:.62rem;color:#67dca7;border:1px solid #277b64;border-radius:999px;padding:6px 9px;background:#08291f}
+        .compact-project-showcase .mini-workflow{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
+        .compact-project-showcase .mini-node{position:relative;min-width:0;background:#fff;border-radius:10px;padding:13px 8px;text-align:center;border:1px solid #cfe2f7;box-shadow:0 10px 25px rgba(0,0,0,.13)}
+        .compact-project-showcase .mini-node:not(:last-child):after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:#7fc0ff;font-weight:900;z-index:3}
+        .compact-project-showcase .mini-node i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;margin:0 auto 7px;background:#e9f3ff;color:#1476dc;font-style:normal;font-size:.65rem;font-weight:900}
+        .compact-project-showcase .mini-node strong{display:block;color:#07182e;font-size:.66rem;line-height:1.25}.compact-project-showcase .mini-node small{display:block;color:#677b92;font-size:.55rem;line-height:1.35;margin-top:3px}
+        .compact-project-showcase .mini-loop{position:relative;z-index:1;margin-top:11px;padding:9px 12px;border:1px dashed #2d6095;border-radius:9px;color:#8fc8ff;font-size:.6rem;text-align:center;background:rgba(7,29,55,.76)}
+
+        .compact-project-showcase .project-library-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:30px 0 14px}
+        .compact-project-showcase .project-library-head h3{margin:0;color:#fff;font-size:1rem}.compact-project-showcase .project-library-head p{margin:4px 0 0;color:#7f9ab9;font-size:.72rem}
+        .compact-project-showcase .project-count{color:#6caeff;font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+        .compact-project-showcase .compact-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+        .compact-project-showcase .compact-project-card{min-width:0;border:1px solid #213f62;border-radius:13px;background:#0a1b31;overflow:hidden;transition:.2s ease;display:flex;flex-direction:column}
+        .compact-project-showcase .compact-project-card:hover{transform:translateY(-3px);border-color:#3479bb;box-shadow:0 16px 32px rgba(0,0,0,.18)}
+        .compact-project-showcase .compact-project-thumb{position:relative;height:118px;overflow:hidden;background:#0e2441}
+        .compact-project-showcase .compact-project-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.78;transition:.3s ease}.compact-project-showcase .compact-project-card:hover img{transform:scale(1.035);opacity:.9}
+        .compact-project-showcase .compact-project-number{position:absolute;left:12px;top:10px;display:grid;place-items:center;width:31px;height:31px;border-radius:8px;background:rgba(4,21,39,.88);border:1px solid rgba(116,180,243,.25);color:#8ac8ff;font-size:.64rem;font-weight:900}
+        .compact-project-showcase .compact-project-body{padding:15px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+        .compact-project-showcase .compact-project-meta{color:#5f9fde;font-size:.58rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800}
+        .compact-project-showcase .compact-project-body h4{margin:0;color:#fff;font-size:.88rem;line-height:1.3}.compact-project-showcase .compact-project-body p{margin:0;color:#91a9c2;font-size:.68rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .compact-project-showcase .compact-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto;padding-top:3px}.compact-project-showcase .compact-tags span{padding:5px 7px;border:1px solid #264b75;border-radius:999px;color:#9fc7ef;font-size:.55rem;font-weight:700}
+        .compact-project-showcase .compact-project-link{margin-top:4px;color:#59a8ff;text-decoration:none;font-size:.65rem;font-weight:800}.compact-project-showcase .compact-project-link:hover{color:#9bd0ff}
+        .compact-project-showcase .project-showcase-footer{display:flex;justify-content:center;margin-top:22px}.compact-project-showcase .project-showcase-footer a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#fff;color:#07182e;border-radius:9px;padding:12px 17px;font-size:.72rem;font-weight:900}
+
+        @media(max-width:1020px){
+          .compact-project-showcase .featured-ai-card{grid-template-columns:1fr}.compact-project-showcase .featured-ai-preview{border-left:0;border-top:1px solid #23496f;min-height:300px}.compact-project-showcase .compact-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+        }
+        @media(max-width:720px){
+          .compact-project-showcase{padding:54px 0}.compact-project-showcase .project-showcase-head{grid-template-columns:1fr;align-items:start}.compact-project-showcase .project-showcase-all{justify-self:start}.compact-project-showcase .featured-ai-copy{padding:24px 20px}.compact-project-showcase .featured-ai-preview{padding:20px;min-height:auto}.compact-project-showcase .mini-workflow{grid-template-columns:1fr 1fr}.compact-project-showcase .mini-node:last-child{grid-column:1/-1}.compact-project-showcase .mini-node:after{display:none}.compact-project-showcase .compact-project-grid{grid-template-columns:1fr}.compact-project-showcase .compact-project-thumb{height:150px}.compact-project-showcase .project-library-head{align-items:start;flex-direction:column;gap:6px}
+        }
+      </style>
       <div class="container">
-        <div class="project-section-header">
-          <small>SELECTED SYSTEMS &amp; DIGITAL TRANSFORMATION PROJECTS</small>
-          <h2>From operational pain<br>points to working solutions.</h2>
-          <p>Each project begins with understanding the business problem first—then designing the right technology around it.</p>
+        <div class="project-showcase-head">
+          <div>
+            <div class="project-showcase-label">Selected Systems &amp; Digital Transformation Projects</div>
+            <h2>From operational problems to practical systems.</h2>
+            <p>A concise view of selected projects across HRIS, governance, ERP, document management, automation, IT assets, and AI workflows.</p>
+          </div>
+          <a class="project-showcase-all" href="projects.html">Browse all projects <span>→</span></a>
         </div>
 
-        <article class="ai-home-spotlight" aria-labelledby="ai-spotlight-title">
-          <div class="ai-home-spotlight-copy">
-            <div class="ai-home-spotlight-kicker"><span>NEW • AI INNOVATION SPOTLIGHT</span><i></i></div>
-            <p class="ai-home-spotlight-index">07 / AI AUTOMATION STUDY</p>
-            <h3 id="ai-spotlight-title">AI Voice Booking &amp;<br>Customer Operations Agent</h3>
-            <p class="ai-home-spotlight-lead">A business-first AI operations concept that turns inbound customer calls into structured booking, support, CRM, follow-up, and human-escalation workflows.</p>
-            <div class="ai-home-spotlight-flow" aria-label="AI voice workflow summary">
-              <span>Voice Call</span><b>→</b><span>AI Understanding</span><b>→</b><span>Business Action</span><b>→</b><span>Human Escalation</span>
-            </div>
-            <div class="case-tags ai-home-spotlight-tags"><span>n8n</span><span>OpenAI</span><span>Voice AI</span><span>Google Calendar</span><span>CRM</span><span>Webhooks</span></div>
-            <a class="ai-home-spotlight-btn" href="project-ai-voice-agent.html">Explore AI Case Study <span>→</span></a>
+        <article class="featured-ai-card" aria-labelledby="featured-ai-title">
+          <div class="featured-ai-copy">
+            <div class="featured-ai-kicker"><span>New • AI Workflow Case Study</span><i></i></div>
+            <h3 id="featured-ai-title">AI Lead Qualification &amp; CRM Requalification Workflow</h3>
+            <p>A multi-turn workflow that captures leads, extracts qualification data, asks for missing information, updates CRM state, and requalifies the lead as new answers arrive.</p>
+            <div class="featured-ai-flow" aria-label="AI lead workflow summary"><span>Lead</span><b>→</b><span>CRM</span><b>→</b><span>AI Qualify</span><b>→</b><span>Follow-up</span><b>→</b><span>Update</span><b>→</b><span>Requalify</span></div>
+            <div class="featured-ai-actions"><a class="primary" href="project-ai-voice-agent.html">Explore Case Study →</a><a class="secondary" href="project-ai-voice-agent.html#workflow">View Workflow</a></div>
           </div>
-          <a class="ai-home-spotlight-media" href="project-ai-voice-agent.html" aria-label="Open AI Voice Booking and Customer Operations Agent project">
-            <img src="assets/images/projects-real/ai-voice-agent-n8n-workflow.jpg" alt="AI Voice Booking and Customer Operations Agent workflow overview">
-            <div class="ai-home-spotlight-overlay"><small>8-STEP OPERATING MODEL</small><strong>Voice → Intent → Booking → Support → Follow-up</strong></div>
-          </a>
+          <div class="featured-ai-preview" aria-label="Lead qualification workflow preview">
+            <div class="preview-title"><strong>Lead Qualification Workflow</strong><span>Working Workflow</span></div>
+            <div class="mini-workflow">
+              <div class="mini-node"><i>01</i><strong>Lead Arrives</strong><small>Webhook intake</small></div>
+              <div class="mini-node"><i>02</i><strong>CRM Lookup</strong><small>New / existing</small></div>
+              <div class="mini-node"><i>03</i><strong>AI Qualify</strong><small>Extract &amp; score</small></div>
+              <div class="mini-node"><i>04</i><strong>Follow-up</strong><small>Ask missing info</small></div>
+              <div class="mini-node"><i>05</i><strong>Requalify</strong><small>Update outcome</small></div>
+            </div>
+            <div class="mini-loop">New information received → update CRM → run qualification again</div>
+          </div>
         </article>
 
-        <div class="portfolio-projects">
+        <div class="project-library-head"><div><h3>More selected work</h3><p>Six projects at a glance — open any card for the full case study.</p></div><span class="project-count">06 Selected Projects</span></div>
 
-          <article class="portfolio-project-card" id="project-peoplecore">
-            <div class="project-media">
-              <img src="assets/images/projects-real/peoplecore-dashboard.png" alt="InsightTera PeopleCore HRIS workforce dashboard">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>01</span><small>INSIGHTTERA • HRIS</small></div>
-              <div class="case-tags"><span>HRIS</span><span>People</span><span>Employee Records</span><span>Automation</span></div>
-              <h3>InsightTera-PeopleCore HRIS</h3>
-              <p class="project-lead">A human resources information system concept designed to centralize employee information, HR workflows, records, and people operations in a structured digital environment.</p>
-              <ul class="project-benefits">
-                <li>Centralized employee information and records</li>
-                <li>Structured HR processes and workflow visibility</li>
-                <li>Designed for scalable people operations</li>
-              </ul>
-              <a class="view-project-btn" href="project-peoplecore.html">View Project <span>→</span></a>
-            </div>
+        <div class="compact-project-grid">
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/peoplecore-dashboard.png" alt="InsightTera PeopleCore HRIS workforce dashboard"><span class="compact-project-number">01</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">HRIS • People Operations</span><h4>InsightTera-PeopleCore HRIS</h4><p>Centralized employee information, HR workflows, records, attendance, leave, and workforce operations.</p><div class="compact-tags"><span>HRIS</span><span>People</span><span>Automation</span></div><a class="compact-project-link" href="project-peoplecore.html">View project →</a></div>
           </article>
 
-          <article class="portfolio-project-card" id="project-google-governance">
-            <div class="project-media">
-              <img src="assets/images/projects-real/aha-dashboard.png" alt="AHA Asset Management System and Google Workspace governance dashboard">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>02</span><small>AHA! BEHAVIORAL DESIGN • MAR 2026 - JUN 2026</small></div>
-              <div class="case-tags"><span>Google Workspace</span><span>ITAM</span><span>Governance</span><span>Apps Script</span></div>
-              <h3>IT Asset Management Consultant | Google Workspace &amp; IT Governance</h3>
-              <p class="project-lead">Led the design, implementation, and optimization of a centralized Asset Management System and governance framework using Google Workspace and Google Apps Script.</p>
-              <ul class="project-benefits">
-                <li>System audit, governance architecture, and role-based access</li>
-                <li>Document management, automation, SOPs, and user training</li>
-                <li>Formal system turnover and ownership transition</li>
-              </ul>
-              <a class="view-project-btn" href="project-aha-governance.html">View Project <span>→</span></a>
-            </div>
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/aha-dashboard.png" alt="AHA Asset Management and Google Workspace governance dashboard"><span class="compact-project-number">02</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">Governance • Google Workspace</span><h4>IT Asset Management Consultant</h4><p>Centralized asset management, role-based governance, documentation, automation, training, and turnover.</p><div class="compact-tags"><span>ITAM</span><span>Governance</span><span>Apps Script</span></div><a class="compact-project-link" href="project-aha-governance.html">View project →</a></div>
           </article>
 
-          <article class="portfolio-project-card" id="project-insighttera">
-            <div class="project-media">
-              <img src="assets/images/projects-real/insighttera-analytics.png" alt="Insight Tera Suite integrated ERP analytics dashboard">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>03</span><small>INSIGHTTERA SUITE • CUSTOM ERP</small></div>
-              <div class="case-tags"><span>ERP</span><span>CRM</span><span>Operations</span><span>Integration</span></div>
-              <h3>Insight Tera Suite</h3>
-              <p class="project-lead">A custom integrated ERP designed to streamline operations by connecting business processes, data, workflows, and management visibility in a unified system.</p>
-              <ul class="project-benefits">
-                <li>Integrated operational modules and shared business data</li>
-                <li>Improved process visibility and decision support</li>
-                <li>Scalable architecture for future business growth</li>
-              </ul>
-              <a class="view-project-btn" href="project-insighttera-suite.html">View Project <span>→</span></a>
-            </div>
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/insighttera-analytics.png" alt="Insight Tera Suite integrated ERP analytics dashboard"><span class="compact-project-number">03</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">ERP • Integrated Operations</span><h4>Insight Tera Suite</h4><p>Custom ERP connecting business processes, shared operational data, workflows, inventory, and analytics.</p><div class="compact-tags"><span>ERP</span><span>CRM</span><span>Operations</span></div><a class="compact-project-link" href="project-insighttera-suite.html">View project →</a></div>
           </article>
 
-          <article class="portfolio-project-card" id="project-drs">
-            <div class="project-media">
-              <img src="assets/images/projects-real/drs-dashboard.png" alt="DRS 2.0 document management dashboard">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>04</span><small>ASSOCIATED WITH ZENITH CAPITAL</small></div>
-              <div class="case-tags"><span>DMS</span><span>Security</span><span>Compliance</span><span>Automation</span></div>
-              <h3>DRS - Clients Document Record System 2.0</h3>
-              <p class="project-lead">A centralized document records system designed to improve how client records, scanned files, loan documents, and compliance requirements are stored, secured, monitored, and retrieved.</p>
-              <ul class="project-benefits">
-                <li>Role-based access, audit logs, tagging, and advanced search</li>
-                <li>Approval, document-request, expiration, and maturity alerts</li>
-                <li>Improved document control and reduced operational risk</li>
-              </ul>
-              <a class="view-project-btn" href="project-drs-2.html">View Project <span>→</span></a>
-            </div>
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/drs-dashboard.png" alt="DRS 2.0 document management dashboard"><span class="compact-project-number">04</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">DMS • Security &amp; Compliance</span><h4>DRS — Clients Document Record System 2.0</h4><p>Secure client-document repository with role-based access, search, auditability, alerts, and records control.</p><div class="compact-tags"><span>DMS</span><span>Security</span><span>Compliance</span></div><a class="compact-project-link" href="project-drs-2.html">View project →</a></div>
           </article>
 
-          <article class="portfolio-project-card" id="project-crm-automation">
-            <div class="project-media">
-              <img src="assets/images/projects-real/crm-lead-to-loan.png" alt="CRM and ERP automation lead-to-loan process flow">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>05</span><small>WORKFLOW AUTOMATION • INTEGRATION</small></div>
-              <div class="case-tags"><span>monday.com</span><span>Zapier</span><span>CRM</span><span>ERP</span></div>
-              <h3>CRM &amp; ERP Automation</h3>
-              <p class="project-lead">Workflow automation and integration initiatives designed to connect sales, operations, customer-management, and enterprise processes while reducing repetitive manual work.</p>
-              <ul class="project-benefits">
-                <li>Automated routing, notifications, and cross-board workflows</li>
-                <li>Improved process visibility and team collaboration</li>
-                <li>Reduced repetitive manual processing across business workflows</li>
-              </ul>
-              <a class="view-project-btn" href="project-crm-erp-automation.html">View Project <span>→</span></a>
-            </div>
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/crm-lead-to-loan.png" alt="CRM and ERP lead-to-loan workflow"><span class="compact-project-number">05</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">Automation • CRM / ERP</span><h4>CRM &amp; ERP Automation</h4><p>Lead-to-loan automation connecting assignment, routing, assessments, approvals, CRM coordination, and ERP processing.</p><div class="compact-tags"><span>monday.com</span><span>Zapier</span><span>NetSuite</span></div><a class="compact-project-link" href="project-crm-erp-automation.html">View project →</a></div>
           </article>
 
-          <article class="portfolio-project-card" id="project-itam">
-            <div class="project-media">
-              <img src="assets/images/projects-real/itam-dashboard.png" alt="IT Asset Management System main asset dashboard">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>06</span><small>JC TECHSIGHT STRATEGIES • JUNE 2024 - PRESENT</small></div>
-              <div class="case-tags"><span>Hardware Assets</span><span>Inventory</span><span>Lifecycle</span><span>Governance</span></div>
-              <h3>IT Asset Management System</h3>
-              <p class="project-lead">A hardware-focused IT Asset Management System covering complete asset lifecycle management—from acquisition and assignment to transfer, maintenance, return, retirement, and disposal.</p>
-              <ul class="project-benefits">
-                <li>Centralized asset inventory and accountability</li>
-                <li>Complete ownership, transfer, maintenance, and retirement history</li>
-                <li>Better audit readiness, lifecycle planning, and purchasing decisions</li>
-              </ul>
-              <a class="view-project-btn" href="project-itam-system.html">View Project <span>→</span></a>
-            </div>
+          <article class="compact-project-card">
+            <div class="compact-project-thumb"><img src="assets/images/projects-real/itam-dashboard.png" alt="IT Asset Management System dashboard"><span class="compact-project-number">06</span></div>
+            <div class="compact-project-body"><span class="compact-project-meta">IT Operations • Asset Lifecycle</span><h4>IT Asset Management System</h4><p>Hardware inventory and lifecycle management covering assignment, transfer, maintenance, audit, return, and retirement.</p><div class="compact-tags"><span>ITAM</span><span>QR</span><span>Lifecycle</span></div><a class="compact-project-link" href="project-itam-system.html">View project →</a></div>
           </article>
-
-          <article class="portfolio-project-card" id="project-ai-voice-agent">
-            <div class="project-media">
-              <img src="assets/images/projects-real/ai-voice-agent-n8n-workflow.jpg" alt="AI Voice Booking and Customer Operations Agent workflow case-study preview">
-            </div>
-            <div class="project-details">
-              <div class="project-order"><span>07</span><small>AI AUTOMATION STUDY • BUSINESS OPERATIONS</small></div>
-              <div class="case-tags"><span>n8n</span><span>OpenAI</span><span>Voice AI</span><span>Automation</span></div>
-              <h3>AI Voice Booking &amp; Customer Operations Agent</h3>
-              <p class="project-lead">A solution architecture study for turning inbound customer conversations into structured booking, support, CRM, follow-up, and human-escalation workflows.</p>
-              <ul class="project-benefits">
-                <li>Eight-step voice-to-business workflow architecture</li>
-                <li>Booking, support, calendar, CRM, and notification integration design</li>
-                <li>Human escalation and operational logging built into the model</li>
-              </ul>
-              <a class="view-project-btn" href="project-ai-voice-agent.html">View Project <span>→</span></a>
-            </div>
-          </article>
-
         </div>
+
+        <div class="project-showcase-footer"><a href="projects.html">See the complete project library <span>→</span></a></div>
       </div>
     </section>
 

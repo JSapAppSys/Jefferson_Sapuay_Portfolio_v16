@@ -10,6 +10,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/projects.css">
+
+  <style>
+    /* Redesigned Projects Browser */
+    .project-browser{padding:72px 0 86px;background:#f6f9fd;}
+    .project-browser .container{width:min(1220px,calc(100% - 40px));}
+    .projects-browser-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end;margin-bottom:28px;}
+    .projects-browser-head .eyebrow{display:flex;align-items:center;gap:10px;color:#0f6fff;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px;}
+    .projects-browser-head .eyebrow:after{content:'';width:42px;height:2px;background:#0f6fff;}
+    .projects-browser-head h2{margin:0;font:800 clamp(2rem,3.6vw,3.3rem)/1.06 Manrope,Inter,sans-serif;letter-spacing:-.04em;color:#07182f;}
+    .projects-browser-head p{margin:12px 0 0;max-width:740px;color:#61728a;line-height:1.7;font-size:.9rem;}
+    .project-count{min-width:140px;border:1px solid #dce6f2;border-radius:14px;background:#fff;padding:14px 16px;text-align:right;box-shadow:0 8px 24px rgba(12,42,78,.05);}
+    .project-count strong{display:block;font:800 1.55rem/1 Manrope;color:#0f6fff;}
+    .project-count span{display:block;margin-top:5px;color:#7b899a;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;}
+
+    .project-toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,330px);gap:18px;align-items:center;margin-bottom:26px;padding:14px;border:1px solid #dce6f2;border-radius:16px;background:#fff;box-shadow:0 12px 34px rgba(15,42,78,.05);}
+    .project-filters{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px;}
+    .project-filters::-webkit-scrollbar{display:none;}
+    .filter-btn{flex:0 0 auto;border:1px solid #dbe6f2;background:#f8fbff;color:#53657c;border-radius:999px;padding:10px 14px;font:700 .72rem Inter,sans-serif;cursor:pointer;transition:.2s ease;white-space:nowrap;}
+    .filter-btn:hover{border-color:#a9ccff;color:#0f6fff;background:#f2f7ff;}
+    .filter-btn.active{background:#0f6fff;border-color:#0f6fff;color:#fff;box-shadow:0 7px 18px rgba(15,111,255,.2);}
+    .project-search{height:44px;display:flex;align-items:center;gap:9px;border:1px solid #dbe6f2;border-radius:11px;background:#f8fbff;padding:0 13px;color:#6d7f95;}
+    .project-search span{font-size:1rem;}
+    .project-search input{width:100%;border:0;outline:0;background:transparent;color:#0b1b33;font:500 .78rem Inter,sans-serif;}
+    .project-search input::placeholder{color:#92a0b2;}
+
+    .project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    .project-card{display:flex;flex-direction:column;min-width:0;border:1px solid #dce6f2;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 14px 38px rgba(14,37,67,.055);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+    .project-card:hover{transform:translateY(-4px);border-color:#bfd8f8;box-shadow:0 20px 45px rgba(14,37,67,.09);}
+    .project-card[hidden]{display:none!important;}
+    .project-image-button{position:relative;display:block;height:205px;background:#eef3f8;overflow:hidden;}
+    .project-image-button img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+    .project-card:hover .project-image-button img{transform:scale(1.025);}
+    .project-image-button:after{content:'View project  →';position:absolute;right:12px;bottom:12px;padding:7px 10px;border-radius:8px;background:rgba(3,24,45,.88);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.04em;opacity:0;transform:translateY(5px);transition:.2s ease;}
+    .project-card:hover .project-image-button:after{opacity:1;transform:none;}
+    .project-card-content{display:flex;flex-direction:column;flex:1;padding:20px;}
+    .project-card-head{display:block;}
+    .project-card-head h3{margin:0 0 7px;color:#07182f;font:800 1.05rem/1.3 Manrope,Inter,sans-serif;letter-spacing:-.02em;}
+    .project-type{display:inline-block;color:#0f6fff;text-decoration:none;font-size:.7rem;font-weight:700;line-height:1.45;margin-bottom:12px;}
+    .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 13px;}
+    .card-tags span{padding:5px 8px;border-radius:999px;background:#edf5ff;border:1px solid #d6e8ff;color:#31577f;font-size:.61rem;font-weight:800;line-height:1;}
+    .project-card-content>p{margin:0;color:#607089;font-size:.76rem;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .project-card-content ul{display:none;}
+    .view-details{margin-top:auto;padding-top:17px;color:#0f6fff;text-decoration:none;font-size:.73rem;font-weight:800;display:inline-flex;align-items:center;gap:8px;}
+    .view-details span{transition:transform .2s ease}.view-details:hover span{transform:translateX(3px)}
+    .project-card.is-ai{border-color:#bdd8ff;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);}
+    .project-card.is-ai .project-card-content{position:relative;}
+    .project-card.is-ai .project-card-content:before{content:'NEW';position:absolute;top:18px;right:18px;padding:5px 8px;border-radius:999px;background:#e8f3ff;color:#0f6fff;font-size:.56rem;font-weight:900;letter-spacing:.08em;}
+    .empty-projects{margin-top:30px;border:1px dashed #cfdbea;border-radius:16px;background:#fff;padding:36px;text-align:center;color:#6d7e93;}
+    .empty-projects strong{display:block;color:#0b1b33;font-size:1rem;margin-bottom:5px;}
+    .empty-projects span{font-size:.76rem;}
+
+    @media(max-width:980px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.projects-browser-head{grid-template-columns:1fr}.project-count{justify-self:start;text-align:left}.project-toolbar{grid-template-columns:1fr}.project-search{max-width:none;}}
+    @media(max-width:640px){.project-browser{padding:54px 0 66px}.project-browser .container{width:min(100% - 28px,1220px)}.project-grid{grid-template-columns:1fr}.project-image-button{height:190px}.projects-browser-head h2{font-size:2rem}.project-toolbar{padding:10px}.filter-btn{padding:9px 12px}.project-card-content{padding:18px}}
+  </style>
 </head>
 <body class="projects-page">
 <header class="site-header">
@@ -34,56 +88,67 @@
 
 <section class="project-browser">
   <div class="container">
+    <div class="projects-browser-head">
+      <div>
+        <div class="eyebrow">Project Library</div>
+        <h2>Browse projects by solution area.</h2>
+        <p>Filter by category or search by project name, technology, platform, or capability.</p>
+      </div>
+      <div class="project-count" aria-live="polite"><strong id="visibleProjectCount">7</strong><span>Projects shown</span></div>
+    </div>
+
     <div class="project-toolbar">
       <div class="project-filters" role="group" aria-label="Project categories">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="business">Business Systems</button>
-        <button class="filter-btn" data-filter="automation">Automation</button>
-        <button class="filter-btn" data-filter="operations">IT Operations</button>
-        <button class="filter-btn" data-filter="documents">Document Management</button>
-        <button class="filter-btn" data-filter="erp">CRM / ERP</button>
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="erp">ERP / CRM</button>
+        <button class="filter-btn" type="button" data-filter="automation">Automation</button>
+        <button class="filter-btn" type="button" data-filter="hris">HRIS</button>
+        <button class="filter-btn" type="button" data-filter="operations">IT Operations</button>
+        <button class="filter-btn" type="button" data-filter="documents">Document Management</button>
+        <button class="filter-btn" type="button" data-filter="governance">Governance</button>
+        <button class="filter-btn" type="button" data-filter="ai">AI</button>
       </div>
-      <label class="project-search"><span>⌕</span><input id="projectSearch" type="search" placeholder="Search projects..." aria-label="Search projects"></label>
+      <label class="project-search"><span>⌕</span><input id="projectSearch" type="search" placeholder="Search projects, tools, or tags..." aria-label="Search projects"></label>
     </div>
 
     <div class="project-grid" id="projectGrid">
-      <article class="project-card" id="peoplecore" data-category="business operations" data-search="InsightTera PeopleCore HRIS employee management attendance leave scheduling onboarding offboarding approvals reports integrations">
+      <article class="project-card" id="peoplecore" data-category="business operations hris" data-search="InsightTera PeopleCore HRIS human resources employee management attendance leave scheduling onboarding offboarding approvals reports integrations workforce">
         <a class="project-image-button" href="project-peoplecore.html" aria-label="View InsightTera-PeopleCore HRIS"><img src="assets/images/projects-real/peoplecore-dashboard.png" alt="InsightTera-PeopleCore HRIS workforce dashboard"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>InsightTera-PeopleCore HRIS</h3><a href="project-peoplecore.html" class="project-type">Human Resources Information System</a></div><div class="card-tags"><span>HRIS</span><span>Attendance</span><span>Lifecycle</span></div></div><p>A modern HRIS designed to centralize employee records, attendance, leave, scheduling, onboarding and offboarding, approvals, reporting, and administrative controls.</p><ul><li>Centralized employee and workforce information</li><li>Structured attendance, leave, schedules, and approvals</li><li>Lifecycle, reporting, admin, and integration controls</li></ul><a class="view-details" href="project-peoplecore.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>InsightTera-PeopleCore HRIS</h3><a href="project-peoplecore.html" class="project-type">Human Resources Information System</a></div><div class="card-tags"><span>HRIS</span><span>Attendance</span><span>Lifecycle</span></div><p>Centralizes employee records, attendance, leave, scheduling, onboarding, approvals, reporting, and workforce controls.</p><a class="view-details" href="project-peoplecore.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="aha-governance" data-category="business operations documents" data-search="AHA Behavioral Design IT asset management consultant Google Workspace governance Apps Script RACI RBAC document management repository">
+      <article class="project-card" id="aha-governance" data-category="business operations documents governance" data-search="AHA Behavioral Design IT asset management consultant Google Workspace governance Apps Script RACI RBAC document management repository ITAM">
         <a class="project-image-button" href="project-aha-governance.html" aria-label="View AHA Google Workspace and IT Governance project"><img src="assets/images/projects-real/aha-dashboard.png" alt="AHA Asset Management System dashboard"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>IT Asset Management Consultant</h3><a href="project-aha-governance.html" class="project-type">Google Workspace &amp; IT Governance</a></div><div class="card-tags"><span>Governance</span><span>Workspace</span><span>ITAM</span></div></div><p>Consultancy for AHA! Behavioral Design covering system audit, governance architecture, centralized asset management, role-based access, document management, automation, SOPs, training, and formal turnover.</p><ul><li>Centralized AMS built around Google Workspace</li><li>RACI/RBAC access, audit, and repository governance</li><li>Documentation, training, and ownership transition</li></ul><a class="view-details" href="project-aha-governance.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>IT Asset Management Consultant</h3><a href="project-aha-governance.html" class="project-type">Google Workspace &amp; IT Governance</a></div><div class="card-tags"><span>Governance</span><span>Workspace</span><span>ITAM</span></div><p>Governance, centralized asset management, role-based access, document control, automation, SOPs, training, and turnover.</p><a class="view-details" href="project-aha-governance.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="insighttera-suite" data-category="business erp" data-search="Insight Tera Suite ERP accounting inventory warehouse analytics SME integrated enterprise platform">
+      <article class="project-card" id="insighttera-suite" data-category="business erp" data-search="Insight Tera Suite ERP CRM accounting inventory warehouse analytics SME enterprise resource planning integrated enterprise platform finance operations">
         <a class="project-image-button" href="project-insighttera-suite.html" aria-label="View Insight Tera Suite"><img src="assets/images/projects-real/insighttera-analytics.png" alt="Insight Tera Suite analytics dashboard"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>Insight Tera Suite</h3><a href="project-insighttera-suite.html" class="project-type">Custom Integrated ERP for SMEs</a></div><div class="card-tags"><span>ERP</span><span>Finance</span><span>Inventory</span></div></div><p>A custom integrated ERP designed to help SMEs reduce fragmented internal operations by connecting business processes, data, workflows, and management visibility in one platform.</p><ul><li>Integrated business modules and shared operational data</li><li>Accounting, inventory, warehouse, and analytics capabilities</li><li>Designed around practical SME internal workflows</li></ul><a class="view-details" href="project-insighttera-suite.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>Insight Tera Suite</h3><a href="project-insighttera-suite.html" class="project-type">Custom Integrated ERP for SMEs</a></div><div class="card-tags"><span>ERP</span><span>CRM</span><span>Inventory</span></div><p>Connects finance, inventory, operations, workflows, shared business data, and management visibility in one ERP platform.</p><a class="view-details" href="project-insighttera-suite.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="drs-2" data-category="business documents" data-search="DRS Clients Document Record System 2.0 DocuVault document management security compliance audit permissions backup search">
+      <article class="project-card" id="drs-2" data-category="business documents" data-search="DRS Clients Document Record System 2.0 DocuVault DMS document management security compliance audit permissions backup archive search">
         <a class="project-image-button" href="project-drs-2.html" aria-label="View DRS 2.0"><img src="assets/images/projects-real/drs-dashboard.png" alt="DRS 2.0 document management dashboard"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>DRS - Clients Document Record System 2.0</h3><a href="project-drs-2.html" class="project-type">Secure Document Management System</a></div><div class="card-tags"><span>DMS</span><span>Security</span><span>Compliance</span></div></div><p>A centralized document management system designed to improve security, accessibility, organization, retrieval, permissions, auditability, and operational control over business records.</p><ul><li>Secure upload, repository, metadata, and advanced search</li><li>Role-based access, audit logs, requests, and alerts</li><li>Backup, archive, recovery, and retention controls</li></ul><a class="view-details" href="project-drs-2.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>DRS - Clients Document Record System 2.0</h3><a href="project-drs-2.html" class="project-type">Secure Document Management System</a></div><div class="card-tags"><span>DMS</span><span>Security</span><span>Compliance</span></div><p>Centralizes business documents with secure storage, metadata, advanced search, role-based access, audit logs, and retention controls.</p><a class="view-details" href="project-drs-2.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="crm-automation" data-category="automation erp" data-search="CRM ERP automation Monday.com Zapier lead to loan NetSuite workflow integration sales telesales assessment approvals">
+      <article class="project-card" id="crm-automation" data-category="automation erp" data-search="CRM ERP automation Monday.com Zapier lead to loan NetSuite workflow integration sales telesales assessment approvals CRM automation">
         <a class="project-image-button diagram" href="project-crm-erp-automation.html" aria-label="View CRM and ERP automation project"><img src="assets/images/projects-real/crm-lead-to-loan.png" alt="Lead to loan process automation diagram"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>CRM &amp; ERP Automation</h3><a href="project-crm-erp-automation.html" class="project-type">monday.com &amp; Zapier Lead-to-Loan Workflow Integration</a></div><div class="card-tags"><span>monday.com</span><span>Zapier</span><span>NetSuite</span></div></div><p>End-to-end workflow automation connecting lead sources, qualification, telesales, document collection, assessment, approvals, CRM coordination, and ERP-related loan processing.</p><ul><li>Mapped the lead-to-loan operational workflow</li><li>Automated assignment, routing, alerts, and status updates</li><li>Connected monday.com, Zapier, Google Workspace, and NetSuite processes</li></ul><a class="view-details" href="project-crm-erp-automation.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>CRM &amp; ERP Automation</h3><a href="project-crm-erp-automation.html" class="project-type">monday.com &amp; Zapier Lead-to-Loan Integration</a></div><div class="card-tags"><span>CRM</span><span>ERP</span><span>Automation</span></div><p>Automates lead assignment, qualification, assessment, approvals, notifications, CRM coordination, and ERP-related processing.</p><a class="view-details" href="project-crm-erp-automation.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="itam-system" data-category="business operations" data-search="IT Asset Management System hardware lifecycle QR assignment transfer return maintenance disposal audit inventory registry">
+      <article class="project-card" id="itam-system" data-category="business operations governance" data-search="IT Asset Management System ITAM hardware lifecycle QR assignment transfer return maintenance disposal audit inventory registry governance">
         <a class="project-image-button" href="project-itam-system.html" aria-label="View IT Asset Management System"><img src="assets/images/projects-real/itam-dashboard.png" alt="IT Asset Management System main dashboard"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>IT Asset Management System</h3><a href="project-itam-system.html" class="project-type">Hardware Assets &amp; Complete Lifecycle Management</a></div><div class="card-tags"><span>ITAM</span><span>QR</span><span>Lifecycle</span></div></div><p>A centralized IT Asset Management System covering hardware inventory and the complete asset lifecycle from registration and issuance through transfer, return, maintenance, audit, and retirement.</p><ul><li>Centralized asset registry, profiles, and accountability</li><li>Assignment, transfer, return, maintenance, and QR tagging</li><li>Auditable lifecycle history for better planning and control</li></ul><a class="view-details" href="project-itam-system.html">View Project <span>→</span></a></div>
+        <div class="project-card-content"><div class="project-card-head"><h3>IT Asset Management System</h3><a href="project-itam-system.html" class="project-type">Hardware Assets &amp; Lifecycle Management</a></div><div class="card-tags"><span>ITAM</span><span>QR</span><span>Lifecycle</span></div><p>Manages hardware inventory from registration and assignment through transfer, maintenance, audit, return, retirement, and disposal.</p><a class="view-details" href="project-itam-system.html">View Project <span>→</span></a></div>
       </article>
 
-      <article class="project-card" id="ai-voice-agent" data-category="automation business" data-search="AI Voice Booking Customer Operations Agent n8n OpenAI voice AI appointment booking CRM webhook human escalation automation study">
-        <a class="project-image-button" href="project-ai-voice-agent.html" aria-label="View AI Voice Booking and Customer Operations Agent"><img src="assets/images/projects-real/ai-voice-agent-n8n-workflow.jpg" alt="AI Voice Booking and Customer Operations Agent workflow case study"></a>
-        <div class="project-card-content"><div class="project-card-head"><div><h3>AI Voice Booking &amp; Customer Operations Agent</h3><a href="project-ai-voice-agent.html" class="project-type">AI Automation Study &amp; Solution Architecture</a></div><div class="card-tags"><span>n8n</span><span>OpenAI</span><span>Voice AI</span></div></div><p>A business-first AI automation study exploring how inbound customer calls can become structured booking, support, CRM, follow-up, and human-escalation workflows.</p><ul><li>Eight-step voice-to-business workflow architecture</li><li>Appointment, support, CRM, and notification integration design</li><li>Human escalation and operational logging built into the flow</li></ul><a class="view-details" href="project-ai-voice-agent.html">View Project <span>→</span></a></div>
+      <article class="project-card is-ai" id="ai-voice-agent" data-category="automation business ai erp" data-search="AI Lead Qualification CRM Requalification Workflow Make OpenRouter Google Sheets Webhooks JSON AI automation qualification follow-up CRM">
+        <a class="project-image-button" href="project-ai-voice-agent.html" aria-label="View AI Lead Qualification and CRM Requalification Workflow"><img src="assets/images/projects-real/ai-lead-qualification-agent-workflow.jpg" alt="AI Lead Qualification and CRM Requalification Workflow"></a>
+        <div class="project-card-content"><div class="project-card-head"><h3>AI Lead Qualification &amp; CRM Requalification Workflow</h3><a href="project-ai-voice-agent.html" class="project-type">AI Automation · CRM Workflow</a></div><div class="card-tags"><span>AI</span><span>CRM</span><span>Automation</span></div><p>Captures incoming leads, extracts qualification data, updates CRM state, asks targeted follow-ups, and requalifies as new information arrives.</p><a class="view-details" href="project-ai-voice-agent.html">View Project <span>→</span></a></div>
       </article>
     </div>
 
-    <div class="empty-projects" id="emptyProjects" hidden>No projects match your search.</div>
+    <div class="empty-projects" id="emptyProjects" hidden><strong>No projects found</strong><span>Try another keyword or choose a different category.</span></div>
   </div>
 </section>
 
@@ -104,5 +169,56 @@
   </section>
 </div>
 
-<script src="js/main.js"></script><script src="js/projects.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const buttons = Array.from(document.querySelectorAll('.project-browser .filter-btn'));
+  const cards = Array.from(document.querySelectorAll('.project-browser .project-card'));
+  const search = document.getElementById('projectSearch');
+  const empty = document.getElementById('emptyProjects');
+  const count = document.getElementById('visibleProjectCount');
+  let activeFilter = 'all';
+
+  function normalize(value){
+    return (value || '').toLowerCase().trim();
+  }
+
+  function applyFilters(){
+    const query = normalize(search ? search.value : '');
+    let visible = 0;
+
+    cards.forEach(function(card){
+      const categories = normalize(card.dataset.category).split(/\s+/).filter(Boolean);
+      const searchable = normalize((card.dataset.search || '') + ' ' + card.textContent);
+      const categoryMatch = activeFilter === 'all' || categories.includes(activeFilter);
+      const searchMatch = !query || searchable.includes(query);
+      const show = categoryMatch && searchMatch;
+      card.hidden = !show;
+      if(show) visible++;
+    });
+
+    if(count) count.textContent = String(visible);
+    if(empty) empty.hidden = visible !== 0;
+  }
+
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(){
+      activeFilter = normalize(button.dataset.filter) || 'all';
+      buttons.forEach(function(btn){
+        const isActive = btn === button;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      applyFilters();
+    });
+  });
+
+  if(search){
+    search.addEventListener('input', applyFilters);
+    search.addEventListener('search', applyFilters);
+  }
+
+  applyFilters();
+})();
+</script>
 </body></html>
