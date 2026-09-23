@@ -80,6 +80,304 @@
       .lead-journey,.tools-grid,.status-grid,.value-grid{grid-template-columns:1fr}.workflow-hero img{aspect-ratio:16/11}.workflow-frame-head{display:block}.workflow-frame-head span{display:block;margin-top:5px}
       .ai-contact-inner{display:block}.ai-contact .ai-btn{margin-top:20px}
     }
+
+    /* Tabbed workflow presentation */
+    .workflow-tabs-wrap{margin-top:38px}
+    .workflow-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--ai-line);padding-bottom:10px}
+    .workflow-tab{appearance:none;border:1px solid var(--ai-line);background:#fff;color:#53657c;border-radius:10px;padding:11px 14px;font:700 .74rem Inter;cursor:pointer;transition:.2s ease}
+    .workflow-tab:hover{border-color:#b9d7ff;color:var(--ai-blue);transform:translateY(-1px)}
+    .workflow-tab.active{background:var(--ai-blue);border-color:var(--ai-blue);color:#fff;box-shadow:0 8px 20px rgba(15,111,255,.16)}
+    .workflow-panel{display:none;margin-top:22px}
+    .workflow-panel.active{display:block;animation:workflowFade .22s ease}
+    @keyframes workflowFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .workflow-detail{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:30px;align-items:stretch}
+    .workflow-image-card{border:1px solid var(--ai-line);border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 18px 50px rgba(14,37,67,.07)}
+    .workflow-image-card .image-label{padding:13px 17px;border-bottom:1px solid var(--ai-line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .workflow-image-card .image-label strong{font-size:.82rem}.workflow-image-card .image-label span{font-size:.67rem;color:var(--ai-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    .workflow-image-card img{display:block;width:100%;height:360px;object-fit:contain;background:#f6f7f9}
+    .workflow-image-card figcaption{padding:14px 17px;border-top:1px solid var(--ai-line);font-size:.75rem;color:var(--ai-muted);line-height:1.65}
+    .workflow-copy{border:1px solid var(--ai-line);border-radius:16px;background:#fff;padding:28px}
+    .workflow-copy .step-kicker{display:flex;align-items:center;gap:10px;color:var(--ai-blue);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:14px}
+    .workflow-copy .step-kicker b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ai-soft2);font-size:.66rem}
+    .workflow-copy h3{font:800 clamp(1.45rem,2.4vw,2.05rem)/1.12 Manrope;margin:0 0 12px;letter-spacing:-.03em}
+    .workflow-copy>p{margin:0 0 22px;color:var(--ai-muted);line-height:1.8;font-size:.88rem}
+    .workflow-info{display:grid;gap:12px}
+    .workflow-info-row{border-top:1px solid var(--ai-line);padding-top:13px}
+    .workflow-info-row small{display:block;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#7d8ba0;font-size:.61rem;margin-bottom:5px}
+    .workflow-info-row strong{display:block;font-size:.82rem;line-height:1.55}
+    .workflow-info-row span{display:block;color:var(--ai-muted);font-size:.76rem;line-height:1.6;margin-top:3px}
+    .workflow-overview{margin-top:22px;border:1px solid var(--ai-line);border-radius:14px;background:var(--ai-soft);padding:20px 22px}
+    .workflow-overview strong{display:block;font-size:.86rem;margin-bottom:7px}.workflow-overview p{margin:0;color:var(--ai-muted);font-size:.78rem;line-height:1.7}
+    .workflow-next{margin-top:18px;padding:13px 15px;border-radius:10px;background:var(--ai-soft2);color:#31577f;font-size:.74rem;line-height:1.55}
+    .workflow-next strong{color:var(--ai-blue)}
+    .workflow-full-image{margin-top:28px}
+    .workflow-full-image img{display:block;width:100%;height:auto;max-height:650px;object-fit:contain;background:#f6f7f9}
+    @media(max-width:900px){.workflow-detail{grid-template-columns:1fr}.workflow-image-card img{height:300px}}
+    @media(max-width:600px){.workflow-tabs{display:grid;grid-template-columns:1fr 1fr}.workflow-tab{width:100%;text-align:left}.workflow-image-card img{height:220px}.workflow-copy{padding:22px}}
+
+
+    /* Lead Journey coded visuals only - preserves right description cards */
+    #workflow .workflow-tabs-wrap{margin-top:38px;min-width:0}
+    #workflow .workflow-tabs{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding:0 0 12px;border-bottom:1px solid var(--ai-line);scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+    #workflow .workflow-tab{flex:0 0 auto;white-space:nowrap}
+    #workflow .workflow-panel{min-width:0}
+    #workflow .workflow-detail{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:24px;align-items:stretch;min-width:0}
+    #workflow .workflow-visual-card,#workflow .workflow-copy{min-width:0;width:100%}
+    #workflow .workflow-visual-card{border:1px solid var(--ai-line);border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 18px 50px rgba(14,37,67,.07)}
+    #workflow .workflow-visual-head{padding:13px 17px;border-bottom:1px solid var(--ai-line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+    #workflow .workflow-visual-head strong{font-size:.82rem}
+    #workflow .workflow-visual-head span{font-size:.67rem;color:var(--ai-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+    #workflow .workflow-visual-body{padding:16px;background:linear-gradient(180deg,#fbfdff 0%,#f7fbff 100%);min-width:0}
+    #workflow .workflow-visual-foot{padding:14px 17px;border-top:1px solid var(--ai-line);font-size:.75rem;color:var(--ai-muted);line-height:1.65}
+    #workflow .lj-titleline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;min-width:0}
+    #workflow .lj-titleline h4{margin:0;font-size:1rem;color:var(--ai-navy);min-width:0}
+    #workflow .lj-chip{display:inline-flex;align-items:center;padding:6px 9px;border-radius:999px;background:#eaf3ff;color:#0f6fff;font-size:.62rem;font-weight:800;white-space:nowrap}
+    #workflow .lj-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch;margin-bottom:14px;min-width:0}
+    #workflow .lj-process.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #workflow .lj-node{position:relative;border:1px solid #d9e6f4;border-radius:12px;background:#fff;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;min-height:105px}
+    #workflow .lj-node:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:2;color:#5f89bc;font-weight:800;background:#f9fcff;padding:0 2px}
+    #workflow .lj-node-icon{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.82rem;margin-bottom:8px;box-shadow:0 8px 18px rgba(14,37,67,.12)}
+    #workflow .lj-node.purple .lj-node-icon{background:linear-gradient(180deg,#9a63ff,#8048ef)}
+    #workflow .lj-node.green .lj-node-icon{background:linear-gradient(180deg,#32c98d,#1fa56f)}
+    #workflow .lj-node.blue .lj-node-icon{background:linear-gradient(180deg,#4e9dff,#1f77ff)}
+    #workflow .lj-node.navy .lj-node-icon{background:linear-gradient(180deg,#476f9f,#2f5787)}
+    #workflow .lj-node.orange .lj-node-icon{background:linear-gradient(180deg,#ffb14f,#f78a1e)}
+    #workflow .lj-node strong{display:block;font-size:.75rem;line-height:1.2;color:var(--ai-navy);overflow-wrap:anywhere}
+    #workflow .lj-node span{display:block;font-size:.62rem;line-height:1.35;color:var(--ai-muted);margin-top:4px;overflow-wrap:anywhere}
+    #workflow .lj-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;min-width:0}
+    #workflow .lj-box{border:1px solid #dbe7f3;border-radius:11px;background:#fff;padding:13px 14px;min-width:0;overflow:hidden}
+    #workflow .lj-box h5{margin:0 0 9px;font-size:.74rem;color:var(--ai-navy)}
+    #workflow .lj-box p,#workflow .lj-box li{font-size:.68rem;line-height:1.55;color:#48617d}
+    #workflow .lj-box p{margin:0}
+    #workflow .lj-box ul{margin:0;padding-left:17px}
+    #workflow .lj-table-wrap{overflow-x:auto;min-width:0}
+    #workflow .lj-table{width:100%;border-collapse:collapse;font-size:.61rem;color:#38506f;min-width:430px}
+    #workflow .lj-table th,#workflow .lj-table td{padding:6px 7px;border-bottom:1px solid #edf2f7;text-align:left;vertical-align:top;white-space:nowrap}
+    #workflow .lj-table th{font-size:.56rem;text-transform:uppercase;letter-spacing:.04em;color:#7b8ca2}
+    #workflow .lj-code{margin:0;max-width:100%;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:500 .62rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#34527b}
+    #workflow .lj-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px;min-width:0}
+    #workflow .lj-meta-card{border:1px solid #dfe9f5;border-radius:10px;background:#fff;padding:10px 11px;min-width:0}
+    #workflow .lj-meta-card small{display:block;font-size:.57rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;color:#7d8ea3;margin-bottom:6px}
+    #workflow .lj-meta-card span,#workflow .lj-meta-card strong,#workflow .lj-meta-card li{font-size:.64rem;line-height:1.45;color:#38506f;overflow-wrap:anywhere}
+    #workflow .lj-meta-card ul{margin:0;padding-left:15px}
+    #workflow .lj-decision{display:grid;grid-template-columns:minmax(0,1fr) 96px minmax(0,1.1fr);gap:12px;align-items:center;margin-bottom:14px;min-width:0}
+    #workflow .lj-diamond{width:78px;height:78px;transform:rotate(45deg);border:1px solid #97c1ff;background:#fff;border-radius:12px;display:grid;place-items:center;margin:auto}
+    #workflow .lj-diamond span{transform:rotate(-45deg);font-size:.63rem;font-weight:800;color:#1670f8;text-align:center}
+    #workflow .lj-branches{display:grid;gap:8px;min-width:0}
+    #workflow .lj-branch{border:1px solid #dce6f2;background:#fff;border-radius:9px;padding:9px 10px;min-width:0}
+    #workflow .lj-branch strong{display:block;font-size:.66rem;overflow-wrap:anywhere}
+    #workflow .lj-branch span{display:block;font-size:.58rem;color:#6b7f96;margin-top:3px;line-height:1.4}
+    #workflow .lj-branch.yes{border-color:#a7dfc2}.lj-branch.yes strong{color:#188758}
+    #workflow .lj-branch.no{border-color:#dfc6ff}.lj-branch.no strong{color:#8746cd}
+    #workflow .lj-pill{display:inline-flex;padding:3px 6px;border-radius:999px;font-size:.54rem;font-weight:800}
+    #workflow .lj-pill.green{background:#e6f7ef;color:#1b8b5c} #workflow .lj-pill.amber{background:#fff3df;color:#b06f00} #workflow .lj-pill.red{background:#ffe9e9;color:#c44b4b} #workflow .lj-pill.blue{background:#e8f3ff;color:#216dff}
+    #workflow .lj-chat{display:grid;gap:9px}
+    #workflow .lj-bubble{padding:10px 11px;border-radius:11px;font-size:.66rem;line-height:1.5}
+    #workflow .lj-bubble.ai{background:#f4f8ff;border:1px solid #dce6f8;color:#24456f}
+    #workflow .lj-bubble.user{background:#e9f4ff;border:1px solid #c8ddff;color:#204877;margin-left:18px}
+    #workflow .lj-overview-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
+    #workflow .lj-loop-note{border:1px dashed #a8c8f4;background:#f8fbff;color:#276bb9;border-radius:10px;padding:9px 12px;text-align:center;font-size:.65rem;font-weight:800;margin-bottom:12px}
+    #workflow .lj-big-picture{border:1px solid #dce9f6;background:#f2f8ff;border-radius:11px;padding:13px 14px}
+    #workflow .lj-big-picture strong{display:block;font-size:.75rem;margin-bottom:6px;color:var(--ai-navy)}
+    #workflow .lj-big-picture p{margin:0;font-size:.67rem;line-height:1.55;color:#48617d}
+    #workflow .lj-result{border:1px solid #dbe7f3;border-radius:11px;background:#fff;padding:13px 14px}
+    #workflow .lj-result-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #edf2f7;font-size:.65rem;color:#48617d}
+    #workflow .lj-result-row:last-child{border-bottom:0}
+    #workflow .lj-success{margin-top:12px;border:1px solid #cbe9d8;background:#effaf4;color:#21664f;border-radius:10px;padding:10px 12px;text-align:center;font-size:.65rem;font-weight:700}
+    @media(max-width:1050px){#workflow .workflow-detail{grid-template-columns:1fr} #workflow .workflow-copy{padding:24px} #workflow .lj-overview-flow{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    @media(max-width:720px){#workflow .lj-grid{grid-template-columns:1fr} #workflow .lj-meta{grid-template-columns:1fr} #workflow .lj-process{grid-template-columns:1fr} #workflow .lj-process.two{grid-template-columns:1fr} #workflow .lj-node:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%)} #workflow .lj-decision{grid-template-columns:1fr;justify-items:stretch} #workflow .lj-overview-flow{grid-template-columns:repeat(2,minmax(0,1fr))} #workflow .workflow-copy{padding:20px}}
+    @media(max-width:430px){#workflow .lj-overview-flow{grid-template-columns:1fr} #workflow .workflow-visual-head{align-items:flex-start;flex-direction:column}}
+
+  
+
+    /* Redesigned Project Status section */
+    .project-status-section{background:#fff}
+    .project-status-shell{display:grid;gap:28px}
+    .project-status-top{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);gap:28px;align-items:start}
+    .project-status-top .section-head{max-width:none;margin:0}
+    .project-status-top .section-head h2{max-width:760px;font-size:clamp(2rem,3.6vw,3.15rem);line-height:1.08}
+    .project-status-top .section-head p{max-width:700px;font-size:.88rem;line-height:1.65}
+
+    .status-key{border:1px solid var(--ai-line);border-radius:18px;background:linear-gradient(180deg,#fbfdff 0%,#f7faff 100%);padding:22px;box-shadow:0 12px 32px rgba(14,37,67,.05)}
+    .status-key h3{margin:0 0 16px;font-size:.76rem;text-transform:uppercase;letter-spacing:.11em;color:#607089}
+    .status-key-list{display:grid;gap:13px}
+    .status-key-row{display:grid;grid-template-columns:14px 92px 1fr;gap:10px;align-items:center;font-size:.76rem}
+    .status-key-row .key-dot{width:10px;height:10px;border-radius:50%}
+    .status-key-row strong{font-size:.77rem;color:var(--ai-ink)}
+    .status-key-row span:last-child{color:var(--ai-muted);line-height:1.45}
+    .key-complete{background:#1bb674}.key-working{background:#1d73ff}.key-progress{background:#d99300}.key-partial{background:#f3a34a}.key-planned{background:#9aa9bc}
+
+    .status-groups{display:grid;grid-template-columns:.96fr .96fr 1fr;gap:18px;align-items:stretch}
+    .status-group{border:1px solid var(--ai-line);border-radius:18px;padding:16px;background:#f8fbff;min-width:0}
+    .status-group.stable{background:linear-gradient(180deg,#f2fbf7 0%,#f8fcfa 100%);border-color:#ccecdf}
+    .status-group.development{background:linear-gradient(180deg,#f1f7ff 0%,#f8fbff 100%);border-color:#d5e6ff}
+    .status-group.planned{background:linear-gradient(180deg,#f6f8fb 0%,#fafbfd 100%);border-color:#dde5ef}
+
+    .status-group-head{display:flex;gap:12px;align-items:flex-start;padding:2px 2px 14px}
+    .status-group-icon{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.15rem;font-weight:800}
+    .stable .status-group-icon{background:#dff6eb;color:#0d9a61}
+    .development .status-group-icon{background:#e1eeff;color:#176fff}
+    .planned .status-group-icon{background:#e9eef5;color:#6d819a}
+    .status-group-head h3{margin:2px 0 4px;font-size:1.1rem}
+    .status-group-head p{margin:0;color:var(--ai-muted);font-size:.76rem;line-height:1.5}
+
+    .status-stack{display:grid;gap:12px}
+    .status-item{position:relative;border:1px solid var(--ai-line);border-radius:15px;background:#fff;padding:18px;box-shadow:0 10px 25px rgba(14,37,67,.045);min-width:0}
+    .status-item-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .status-item-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-size:.95rem;font-weight:800}
+    .status-item-badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 9px;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+    .status-item.complete .status-item-icon{background:#e4f7ee;color:#0b9c60}.status-item.complete .status-item-badge{background:#e8f8f1;color:#0a915a}
+    .status-item.working .status-item-icon{background:#e7f1ff;color:#156ef5}.status-item.working .status-item-badge{background:#eaf3ff;color:#146af0}
+    .status-item.progress .status-item-icon{background:#fff0d8;color:#d48600}.status-item.progress .status-item-badge{background:#fff2dc;color:#c87a00}
+    .status-item.partial .status-item-icon{background:#fff1e3;color:#ec8a1d}.status-item.partial .status-item-badge{background:#fff0df;color:#e17e13}
+    .status-item.planned .status-item-icon{background:#edf1f6;color:#6f8198}.status-item.planned .status-item-badge{background:#eef2f6;color:#71839a}
+    .status-item h4{margin:0 0 7px;font-size:.96rem;color:var(--ai-ink)}
+    .status-item p{margin:0;color:var(--ai-muted);font-size:.77rem;line-height:1.6}
+
+    .status-summary-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .status-summary{border:1px solid var(--ai-line);border-radius:13px;background:#fff;padding:14px 16px;display:flex;align-items:center;gap:11px}
+    .status-summary b{font-size:1.2rem;color:var(--ai-navy)}
+    .status-summary span{font-size:.7rem;color:var(--ai-muted);line-height:1.4}
+
+    @media(max-width:1050px){
+      .project-status-top{grid-template-columns:1fr}
+      .status-groups{grid-template-columns:1fr 1fr}
+      .status-group.planned{grid-column:1/-1}
+      .status-group.planned .status-stack{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:760px){
+      .status-groups{grid-template-columns:1fr}
+      .status-group.planned{grid-column:auto}
+      .status-group.planned .status-stack{grid-template-columns:1fr}
+      .status-summary-strip{grid-template-columns:1fr}
+      .status-key-row{grid-template-columns:14px 86px 1fr}
+      .project-status-top .section-head h2{font-size:clamp(1.8rem,7vw,2.6rem)}
+    }
+
+  
+
+    /* Expanded case study summary */
+    .case-study-expanded{position:relative;overflow:hidden}
+    .case-study-expanded .case-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:30px;align-items:start;margin-bottom:34px}
+    .case-study-expanded .case-intro-copy{max-width:800px}
+    .case-study-expanded .case-intro-copy .section-head{margin-bottom:0}
+    .case-study-expanded .case-intro-copy p{font-size:.95rem;line-height:1.82}
+    .case-study-expanded .case-summary-card{border:1px solid var(--ai-line);border-radius:18px;background:linear-gradient(180deg,#f9fbff 0%,#f4f8fd 100%);padding:22px;box-shadow:0 14px 34px rgba(14,37,67,.05)}
+    .case-study-expanded .case-summary-card small{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:.62rem;font-weight:800;color:#7d8ea3;margin-bottom:12px}
+    .case-study-expanded .case-summary-card strong{display:block;font:800 1.06rem/1.35 Manrope;color:var(--ai-navy);margin-bottom:10px}
+    .case-study-expanded .case-summary-card p{margin:0;color:var(--ai-muted);font-size:.78rem;line-height:1.68}
+
+    .case-study-expanded .case-sections{display:grid;gap:22px}
+    .case-study-expanded .case-block{border:1px solid var(--ai-line);border-radius:18px;background:#fff;padding:26px;box-shadow:0 16px 40px rgba(14,37,67,.045)}
+    .case-study-expanded .case-block-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+    .case-study-expanded .case-num{flex:0 0 auto;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--ai-soft2);color:var(--ai-blue);font-size:.7rem;font-weight:800;letter-spacing:.04em}
+    .case-study-expanded .case-block-head h3{margin:0 0 6px;font:800 clamp(1.25rem,2vw,1.65rem)/1.15 Manrope;color:var(--ai-navy);letter-spacing:-.02em}
+    .case-study-expanded .case-block-head p{margin:0;color:var(--ai-muted);font-size:.8rem;line-height:1.65}
+
+    .case-study-expanded .case-two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .case-study-expanded .case-three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .case-study-expanded .case-mini{border:1px solid #e1eaf4;border-radius:14px;background:#fbfdff;padding:17px}
+    .case-study-expanded .case-mini h4{margin:0 0 9px;font-size:.84rem;color:var(--ai-navy)}
+    .case-study-expanded .case-mini p{margin:0;color:var(--ai-muted);font-size:.76rem;line-height:1.65}
+    .case-study-expanded .case-mini ul{margin:0;padding-left:18px;color:#3f5672;font-size:.76rem;line-height:1.7}
+    .case-study-expanded .case-mini li+li{margin-top:3px}
+
+    .case-study-expanded .responsibility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .case-study-expanded .role-card{border-radius:16px;padding:20px;border:1px solid var(--ai-line)}
+    .case-study-expanded .role-card.ai{background:linear-gradient(180deg,#f7f1ff 0%,#fcfaff 100%);border-color:#eadfff}
+    .case-study-expanded .role-card.automation{background:linear-gradient(180deg,#eef7ff 0%,#fbfdff 100%);border-color:#d9eaff}
+    .case-study-expanded .role-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:.72rem;margin-bottom:13px}
+    .case-study-expanded .role-card.ai .role-icon{background:#eadcff;color:#7c46d6}
+    .case-study-expanded .role-card.automation .role-icon{background:#dceeff;color:#176ee8}
+    .case-study-expanded .role-card h4{margin:0 0 8px;font-size:.92rem;color:var(--ai-navy)}
+    .case-study-expanded .role-card ul{margin:0;padding-left:18px;color:#425b79;font-size:.75rem;line-height:1.72}
+
+    .case-study-expanded .loop-timeline{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;align-items:stretch}
+    .case-study-expanded .loop-step{position:relative;border:1px solid var(--ai-line);border-radius:13px;background:#fff;padding:15px 12px;min-height:138px}
+    .case-study-expanded .loop-step b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ai-soft2);color:var(--ai-blue);font-size:.62rem;margin-bottom:11px}
+    .case-study-expanded .loop-step strong{display:block;font-size:.76rem;color:var(--ai-navy);line-height:1.35;margin-bottom:6px}
+    .case-study-expanded .loop-step span{display:block;color:var(--ai-muted);font-size:.68rem;line-height:1.5}
+    .case-study-expanded .loop-step:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:2;color:var(--ai-blue);font-weight:800;background:#fff;padding:2px}
+
+    .case-study-expanded .state-track{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px}
+    .case-study-expanded .state-chip{padding:9px 11px;border-radius:9px;background:var(--ai-soft2);border:1px solid #d8e8ff;color:#31577f;font-size:.7rem;font-weight:800}
+    .case-study-expanded .state-chip.active{background:#e8f8f2;border-color:#cbe9dc;color:#21664f}
+    .case-study-expanded .state-arrow{color:var(--ai-blue);font-weight:800}
+
+    .case-study-expanded .preserve-table{width:100%;border-collapse:collapse;font-size:.75rem}
+    .case-study-expanded .preserve-table th,.case-study-expanded .preserve-table td{padding:11px 12px;border-bottom:1px solid #e8eef5;text-align:left}
+    .case-study-expanded .preserve-table th{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:#7e8da0;background:#f8fbfe}
+    .case-study-expanded .preserve-table tr:last-child td{border-bottom:0}
+    .case-study-expanded .preserve-table td:last-child{font-weight:700;color:#35506f}
+
+    .case-study-expanded .journey-example{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:18px}
+    .case-study-expanded .conversation-card{border:1px solid var(--ai-line);border-radius:15px;background:#f8fbff;padding:18px}
+    .case-study-expanded .conversation-card h4{margin:0 0 12px;font-size:.84rem;color:var(--ai-navy)}
+    .case-study-expanded .bubble{max-width:92%;padding:12px 13px;border-radius:13px;font-size:.74rem;line-height:1.55;margin-bottom:10px}
+    .case-study-expanded .bubble.lead{background:#fff;border:1px solid #dfe8f3;color:#38516f}
+    .case-study-expanded .bubble.ai{background:#eaf3ff;border:1px solid #cfe2ff;color:#23558c;margin-left:auto}
+    .case-study-expanded .qualification-card{border:1px solid var(--ai-line);border-radius:15px;background:#fff;padding:18px}
+    .case-study-expanded .qualification-card h4{margin:0 0 12px;font-size:.84rem;color:var(--ai-navy)}
+    .case-study-expanded .qual-pair{display:grid;grid-template-columns:1fr auto;gap:18px;padding:9px 0;border-bottom:1px solid #edf1f5;font-size:.74rem}
+    .case-study-expanded .qual-pair:last-child{border-bottom:0}
+    .case-study-expanded .qual-pair span{color:#71829a}.case-study-expanded .qual-pair strong{color:var(--ai-navy)}
+
+    .case-study-expanded .implemented-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .case-study-expanded .implemented-item{display:flex;gap:11px;border:1px solid #dce8f3;border-radius:13px;padding:15px;background:#fbfdff}
+    .case-study-expanded .implemented-item i{flex:0 0 auto;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#e7f8ef;color:#16875a;font-style:normal;font-size:.7rem;font-weight:800}
+    .case-study-expanded .implemented-item strong{display:block;font-size:.78rem;color:var(--ai-navy);margin-bottom:4px}
+    .case-study-expanded .implemented-item span{display:block;font-size:.7rem;color:var(--ai-muted);line-height:1.52}
+
+    .case-study-expanded .boundary-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .case-study-expanded .boundary-card{border:1px solid var(--ai-line);border-radius:14px;padding:17px;background:#fff}
+    .case-study-expanded .boundary-card h4{margin:0 0 10px;font-size:.83rem;color:var(--ai-navy)}
+    .case-study-expanded .boundary-card ul{margin:0;padding-left:18px;color:#49617f;font-size:.74rem;line-height:1.7}
+
+    .case-study-expanded .decision-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .case-study-expanded .decision-card{border-top:3px solid var(--ai-blue);border-radius:12px;background:#f9fbfe;padding:15px 14px}
+    .case-study-expanded .decision-card h4{margin:0 0 7px;font-size:.78rem;color:var(--ai-navy)}
+    .case-study-expanded .decision-card p{margin:0;color:var(--ai-muted);font-size:.69rem;line-height:1.55}
+
+    .case-study-expanded .end-result-card{margin-top:4px;border-radius:18px;background:linear-gradient(135deg,#041a31,#0a345e);padding:26px;color:#fff;overflow:hidden;position:relative}
+    .case-study-expanded .end-result-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:36px 36px}
+    .case-study-expanded .end-result-inner{position:relative;z-index:1}
+    .case-study-expanded .end-result-inner small{display:block;text-transform:uppercase;letter-spacing:.11em;color:#72baff;font-weight:800;font-size:.64rem;margin-bottom:9px}
+    .case-study-expanded .end-result-inner h3{margin:0 0 8px;font:800 clamp(1.35rem,2.6vw,2rem)/1.15 Manrope}
+    .case-study-expanded .end-result-inner p{margin:0;color:#bad0e6;font-size:.78rem;line-height:1.65;max-width:780px}
+    .case-study-expanded .end-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:19px}
+    .case-study-expanded .end-node{padding:9px 11px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:.7rem;font-weight:800;color:#e9f4ff}
+    .case-study-expanded .end-node.final{background:#0f6fff;border-color:#0f6fff}
+    .case-study-expanded .end-arrow{color:#6db4ff;font-weight:800}
+
+    @media(max-width:1100px){
+      .case-study-expanded .case-intro{grid-template-columns:1fr}.case-study-expanded .loop-timeline{grid-template-columns:repeat(4,minmax(0,1fr))}.case-study-expanded .loop-step:not(:last-child):after{display:none}.case-study-expanded .decision-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:820px){
+      .case-study-expanded .case-two-col,.case-study-expanded .case-three-col,.case-study-expanded .responsibility-grid,.case-study-expanded .journey-example,.case-study-expanded .boundary-grid,.case-study-expanded .implemented-list{grid-template-columns:1fr}.case-study-expanded .loop-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:560px){
+      .case-study-expanded .case-block{padding:19px}.case-study-expanded .case-block-head{align-items:center}.case-study-expanded .loop-timeline,.case-study-expanded .decision-grid{grid-template-columns:1fr}.case-study-expanded .state-arrow,.case-study-expanded .end-arrow{display:none}.case-study-expanded .state-track,.case-study-expanded .end-flow{display:grid;grid-template-columns:1fr}.case-study-expanded .state-chip,.case-study-expanded .end-node{text-align:center}
+    }
+
+  
+
+    /* Compact tabbed case study */
+    .case-study-expanded .case-tabs-shell{margin-top:8px}
+    .case-study-expanded .case-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--ai-line);padding-bottom:10px;margin-bottom:22px}
+    .case-study-expanded .case-tab{appearance:none;border:1px solid var(--ai-line);background:#fff;color:#53657c;border-radius:10px;padding:11px 14px;font:700 .74rem Inter,sans-serif;cursor:pointer;transition:.2s ease}
+    .case-study-expanded .case-tab:hover{border-color:#b9d7ff;color:var(--ai-blue);transform:translateY(-1px)}
+    .case-study-expanded .case-tab.active{background:var(--ai-blue);border-color:var(--ai-blue);color:#fff;box-shadow:0 8px 20px rgba(15,111,255,.16)}
+    .case-study-expanded .case-tab-panel{display:none}
+    .case-study-expanded .case-tab-panel.active{display:block;animation:caseTabFade .22s ease}
+    .case-study-expanded .case-tab-panel>.case-block+ .case-block{margin-top:18px}
+    @keyframes caseTabFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .case-study-expanded .case-tab-panel .end-result-card{margin-top:18px}
+    @media(max-width:760px){
+      .case-study-expanded .case-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
+      .case-study-expanded .case-tab{flex:0 0 auto;white-space:nowrap}
+      .case-study-expanded .case-intro{grid-template-columns:1fr}
+    }
+
   </style>
 </head>
 <body class="project-detail-page ai-page">
@@ -151,30 +449,178 @@
     <div class="container">
       <div class="section-head">
         <div class="section-label">Lead Journey</div>
-        <h2>One lead can move through qualification more than once.</h2>
-        <p><strong>The important part of this workflow is the qualification loop.</strong> Instead of treating every message as a new lead, the system keeps the lead's existing information, identifies what is still missing, generates the next relevant question, and re-evaluates the lead when the customer responds.</p>
+        <h2>Explore the workflow one stage at a time.</h2>
+        <p>The previous horizontal layout compressed too much information into one row. This version separates the qualification process into tabs so each stage has room for its own explanation and a visual reference from the actual automation scenario.</p>
       </div>
-      <div class="lead-journey">
-        <article class="journey-step"><span class="num">01</span><h3>Lead arrives</h3><p>Webhook receives the conversation ID, contact details, source, and latest customer message.</p></article>
-        <article class="journey-step"><span class="num">02</span><h3>CRM lookup</h3><p>Search by Conversation ID or Email to determine whether this is a new or existing lead.</p></article>
-        <article class="journey-step"><span class="num">03</span><h3>AI qualification</h3><p>AI extracts the business problem, service interest, timeline, authority, budget, and other available fields.</p></article>
-        <article class="journey-step"><span class="num">04</span><h3>Route</h3><p>The current qualification state and recommended action determine the next path.</p></article>
-        <article class="journey-step"><span class="num">05</span><h3>Ask</h3><p>If information is missing, AI generates the next relevant question and stores the pending state.</p></article>
-        <article class="journey-step"><span class="num">06</span><h3>Customer replies</h3><p>The next message is linked back to the same lead and the pending qualification context.</p></article>
-        <article class="journey-step"><span class="num">07</span><h3>Interpret</h3><p>AI interprets the response and extracts the qualification information provided by the customer.</p></article>
-        <article class="journey-step"><span class="num">08</span><h3>Update CRM</h3><p>The extracted answer is written to the lead record and the conversation state is updated.</p></article>
-        <article class="journey-step"><span class="num">09</span><h3>Requalify</h3><p>The lead is evaluated again using the newly available information.</p></article>
-        <article class="journey-step"><span class="num">10</span><h3>Final action</h3><p>When enough information is available, the workflow reaches the current recommended action.</p></article>
-      </div>
-      <div class="journey-loop">
-        <div class="journey-loop-head"><strong>The qualification loop</strong><span>Continue from current state</span></div>
-        <div class="journey-loop-flow">
-          <span class="loop-node">Missing information</span><span class="loop-arrow">→</span>
-          <span class="loop-node highlight">AI generates question</span><span class="loop-arrow">→</span>
-          <span class="loop-node">Customer replies</span><span class="loop-arrow">→</span>
-          <span class="loop-node">Extract answer</span><span class="loop-arrow">→</span>
-          <span class="loop-node">Update CRM</span><span class="loop-arrow">→</span>
-          <span class="loop-node highlight">Requalify</span><span class="loop-arrow">↺</span>
+
+      <div class="workflow-tabs-wrap">
+        <div class="workflow-tabs" role="tablist" aria-label="AI Lead Qualification workflow stages">
+          <button class="workflow-tab active" role="tab" aria-selected="true" aria-controls="workflow-panel-0" data-workflow-tab="0">Overview</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-1" data-workflow-tab="1">01 · Lead arrives</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-2" data-workflow-tab="2">02 · CRM lookup</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-3" data-workflow-tab="3">03 · Qualify</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-4" data-workflow-tab="4">04 · Follow-up</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-5" data-workflow-tab="5">05 · Update</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-6" data-workflow-tab="6">06 · Requalify</button>
+          <button class="workflow-tab" role="tab" aria-selected="false" aria-controls="workflow-panel-7" data-workflow-tab="7">07 · Outcome</button>
+        </div>
+
+        <div class="workflow-panel active" id="workflow-panel-0" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Overview</strong><span>Full workflow</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>From a simple message to a fully qualified lead</h4><span class="lj-chip">Full Workflow</span></div><div class="lj-overview-flow"><div class="lj-node purple"><div class="lj-node-icon">W</div><strong>Webhook</strong><span>Lead Arrives</span></div><div class="lj-node green"><div class="lj-node-icon">C</div><strong>CRM Lookup</strong><span>Existing / New</span></div><div class="lj-node purple"><div class="lj-node-icon">AI</div><strong>AI Qualify</strong><span>Extract Data</span></div><div class="lj-node navy"><div class="lj-node-icon">R</div><strong>Route</strong><span>Determine Next</span></div><div class="lj-node blue"><div class="lj-node-icon">Q</div><strong>Follow-up</strong><span>Ask Question</span></div><div class="lj-node green"><div class="lj-node-icon">U</div><strong>Update CRM</strong><span>Write Reply</span></div><div class="lj-node blue"><div class="lj-node-icon">S</div><strong>Requalify</strong><span>Score &amp; Classify</span></div><div class="lj-node blue"><div class="lj-node-icon">O</div><strong>Outcome</strong><span>Recommended Action</span></div></div><div class="lj-loop-note">↺ Qualification Loop</div><div class="lj-big-picture"><strong>💡 The Big Picture</strong><p>The workflow keeps track of each lead's current state, identifies what information is missing, generates the next relevant question, and re-evaluates the lead as new information arrives. It's a multi-turn, stateful qualification process — not a one-time score.</p></div></div><div class="workflow-visual-foot">Coded from the supplied Overview reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>↗</b> Project overview</div>
+              <h3>One lead can move through qualification more than once.</h3>
+              <p>The workflow is built around a stateful qualification loop. A lead can enter with incomplete information, receive a targeted question, return with an answer, and move through qualification again without losing the information already collected.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Core pattern</small><strong>Capture → identify → qualify → ask → update → requalify</strong></div>
+                <div class="workflow-info-row"><small>Lead memory</small><span>Conversation ID / email links new messages back to the existing CRM record.</span></div>
+                <div class="workflow-info-row"><small>AI role</small><span>Interpret customer language, extract structured fields, generate follow-up questions, and support requalification.</span></div>
+                <div class="workflow-info-row"><small>Automation role</small><span>Routers, CRM updates, state management, JSON parsing, and deterministic movement between branches.</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-1" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 01</strong><span>Webhook intake</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>01. Lead Arrives</h4><span class="lj-chip">Webhook Intake</span></div><div class="lj-process two"><div class="lj-node purple"><div class="lj-node-icon">W</div><strong>Webhook</strong><span>Watch for new lead</span></div><div class="lj-node green"><div class="lj-node-icon">G</div><strong>Get Lead Data</strong><span>Conversation ID, Email</span></div></div><div class="lj-grid"><div class="lj-box"><h5>Webhook</h5><div class="lj-table-wrap"><table class="lj-table"><tr><th>Field</th><th>Example</th></tr><tr><td>conversation_id</td><td>abc123</td></tr><tr><td>name</td><td>Juan Dela Cruz</td></tr><tr><td>email</td><td>juan@example.com</td></tr><tr><td>phone</td><td>+63 912 345 6789</td></tr><tr><td>company</td><td>ABC Corp</td></tr><tr><td>source</td><td>Website</td></tr><tr><td>message</td><td>Hi, I'm interested in your services...</td></tr></table></div></div><div class="lj-box"><h5>What happens</h5><p>The system receives a new lead or customer message through the webhook, including conversation ID, contact details, source, and the latest message.</p></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><ul><li>Conversation ID</li><li>Name, email, phone</li><li>Company, source</li><li>Latest message</li></ul></div><div class="lj-meta-card"><small>Purpose</small><span>Start the qualification process with complete lead information.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ CRM Lookup</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 01 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>01</b> Lead arrives</div>
+              <h3>The workflow starts with the latest lead interaction.</h3>
+              <p>A webhook acts as the entry point. The incoming payload provides the context required to connect the latest message with a lead and begin the qualification process.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Input</small><strong>Conversation ID, name, email, phone, company, source, and latest message.</strong></div>
+                <div class="workflow-info-row"><small>Purpose</small><span>Create a consistent starting point for both new leads and returning customers.</span></div>
+                <div class="workflow-info-row"><small>Next</small><span>The incoming identity is used for the CRM lookup.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> Find the existing lead record or determine that a new record needs to be created.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-2" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 02</strong><span>CRM lookup</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>02. CRM Lookup</h4><span class="lj-chip">Existing / New Lead</span></div><div class="lj-decision"><div class="lj-node green"><div class="lj-node-icon">G</div><strong>Google Sheets</strong><span>Search by ID or Email</span></div><div class="lj-diamond"><span>Lead Found?</span></div><div class="lj-branches"><div class="lj-branch yes"><strong>Yes → Continue Qualification</strong><span>Existing lead</span></div><div class="lj-branch no"><strong>No → Create New Lead</strong><span>New lead</span></div></div></div><div class="lj-box"><h5>Google Sheets</h5><div class="lj-table-wrap"><table class="lj-table"><tr><th>Conversation ID</th><th>Name</th><th>Email</th><th>Status</th></tr><tr><td>abc123</td><td>Juan Dela Cruz</td><td>juan@example.com</td><td><span class="lj-pill blue">Qualifying</span></td></tr><tr><td>def456</td><td>Maria Santos</td><td>maria@example.com</td><td><span class="lj-pill green">Qualified</span></td></tr><tr><td>ghi789</td><td>Carlo Reyes</td><td>carlo@example.com</td><td>New</td></tr></table></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Conversation ID or Email</span></div><div class="lj-meta-card"><small>Purpose</small><span>Find existing lead or create a new one.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ Qualify</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 02 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>02</b> CRM lookup</div>
+              <h3>Find the lead before deciding what to do with the message.</h3>
+              <p>The workflow searches the lead CRM using the Conversation ID or email. This is the key step that allows the automation to preserve context across multiple interactions.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Lookup</small><strong>Conversation ID or Email</strong></div>
+                <div class="workflow-info-row"><small>Decision</small><span>New lead versus existing lead.</span></div>
+                <div class="workflow-info-row"><small>Why it matters</small><span>A returning customer continues from the existing record rather than being treated as a brand-new qualification.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> Use the lead's current information to perform an initial or continuing qualification.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-3" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 03</strong><span>AI extraction</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>03. Qualify</h4><span class="lj-chip">AI Extraction</span></div><div class="lj-process"><div class="lj-node purple"><div class="lj-node-icon">AI</div><strong>AI (OpenRouter)</strong><span>Analyze Conversation</span></div><div class="lj-node blue"><div class="lj-node-icon">{ }</div><strong>Extract Fields</strong><span>JSON Parsing</span></div><div class="lj-node green"><div class="lj-node-icon">CRM</div><strong>Update CRM</strong><span>Partial Data</span></div></div><div class="lj-grid"><div class="lj-box"><h5>AI Extracted Qualification Data</h5><pre class="lj-code">{
+  "business_problem": "Process automation",
+  "service_interest": "Automation",
+  "timeline": "Not specified",
+  "authority": "Not specified",
+  "budget": "Not specified",
+  "score": 45,
+  "classification": "Cold",
+  "recommended_action": "QUALIFY_MORE"
+}</pre></div><div class="lj-box"><h5>Fields extracted</h5><ul><li>Business problem</li><li>Service interest</li><li>Timeline</li><li>Authority / Decision-maker</li><li>Budget</li><li>Other relevant information</li></ul></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Conversation text + existing lead data</span></div><div class="lj-meta-card"><small>Purpose</small><span>Extract qualification information from the conversation.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ Follow-up Question</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 03 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>03</b> Qualify</div>
+              <h3>Turn an unstructured conversation into qualification data.</h3>
+              <p>The AI analyzes what the customer has already said and extracts the qualification fields that are available. The automation then parses and routes those values into the appropriate CRM fields and next branch.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Fields</small><strong>Business problem, service interest, timeline, authority, and budget.</strong></div>
+                <div class="workflow-info-row"><small>Processing</small><span>AI output → JSON parsing → structured CRM values.</span></div>
+                <div class="workflow-info-row"><small>Routing</small><span>The current qualification state and recommended action determine what happens next.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> If important information is missing, move into the follow-up question generation branch.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-4" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 04</strong><span>AI follow-up</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>04. Follow-up Question</h4><span class="lj-chip">AI Question Generator</span></div><div class="lj-process"><div class="lj-node green"><div class="lj-node-icon">S</div><strong>Current State</strong><span>Check Missing Info</span></div><div class="lj-node purple"><div class="lj-node-icon">?</div><strong>Generate Question</strong><span>Relevant &amp; Specific</span></div><div class="lj-node blue"><div class="lj-node-icon">Q</div><strong>Send Question</strong><span>Through Workflow</span></div></div><div class="lj-grid"><div class="lj-box"><h5>AI Follow-up Question</h5><div class="lj-chat"><div class="lj-bubble ai">To help us prepare the right solution, what is your target timeline for implementation?</div><div class="lj-bubble user">We're looking to implement within the next 2 months.</div></div></div><div class="lj-box"><h5>Example missing fields</h5><ul><li>Timeline → Ask timeline question</li><li>Budget → Ask budget question</li><li>Authority → Ask decision-maker</li><li>More specific details → Ask details</li></ul></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Current qualification state + missing information</span></div><div class="lj-meta-card"><small>Purpose</small><span>Get the information that's still missing.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ Customer Reply</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 04 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>04</b> Follow-up</div>
+              <h3>Ask for the next missing piece instead of restarting qualification.</h3>
+              <p>When the lead is not fully qualified, the AI Follow-Up Question Generator uses the current CRM state to create a relevant question. The pending question and its context can then be used when the customer responds.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Trigger</small><strong>Important qualification information is still missing.</strong></div>
+                <div class="workflow-info-row"><small>AI task</small><span>Generate the next relevant question from the current qualification state.</span></div>
+                <div class="workflow-info-row"><small>State</small><span>The workflow records that it is waiting for the customer's response.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> The customer's reply re-enters the workflow and is interpreted against the pending qualification context.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-5" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 05</strong><span>Interpret &amp; store</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>05. Update CRM</h4><span class="lj-chip">Interpret &amp; Store</span></div><div class="lj-process"><div class="lj-node blue"><div class="lj-node-icon">Q</div><strong>Customer Reply</strong><span>Analyze Response</span></div><div class="lj-node purple"><div class="lj-node-icon">{ }</div><strong>Extract New Data</strong><span>JSON</span></div><div class="lj-node green"><div class="lj-node-icon">CRM</div><strong>Update CRM</strong><span>Full Update</span></div></div><div class="lj-grid"><div class="lj-box"><h5>Updated Qualification Data</h5><pre class="lj-code">{
+  "business_problem": "Process automation",
+  "service_interest": "Automation",
+  "timeline": "Within 2 months",
+  "authority": "Decision maker",
+  "budget": "Not specified",
+  "score": 65,
+  "classification": "Warm",
+  "recommended_action": "QUALIFY_MORE"
+}</pre></div><div class="lj-box"><h5>What happens</h5><p>The system interprets the customer's reply, extracts the relevant information, and writes it back to the CRM. The lead's state is updated to reflect what has been collected and what is still missing.</p></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Customer reply + pending question</span></div><div class="lj-meta-card"><small>Purpose</small><span>Store new information and update lead state.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ Requalify</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 05 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>05</b> Update</div>
+              <h3>Convert the customer's answer into structured CRM data.</h3>
+              <p>The next webhook interaction is linked to the existing lead. The system interprets the customer's response, extracts the relevant qualification information, and writes the new value back to the CRM.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Interpret</small><strong>Determine what qualification information the reply provides.</strong></div>
+                <div class="workflow-info-row"><small>Update</small><span>Write the extracted timeline, authority, budget, or other relevant value to the lead record.</span></div>
+                <div class="workflow-info-row"><small>State change</small><span>The conversation can move from WAITING_FOR_REPLY toward READY_TO_REQUALIFY.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> Re-run qualification using the lead's original information plus the newly collected answer.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-6" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 06</strong><span>Score &amp; classify</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>06. Requalify</h4><span class="lj-chip">Score &amp; Classify</span></div><div class="lj-process"><div class="lj-node green"><div class="lj-node-icon">D</div><strong>Get Updated Data</strong><span>From CRM</span></div><div class="lj-node purple"><div class="lj-node-icon">Σ</div><strong>Recalculate</strong><span>Score &amp; Classification</span></div><div class="lj-node green"><div class="lj-node-icon">CRM</div><strong>Update CRM</strong><span>New Status</span></div></div><div class="lj-grid"><div class="lj-result"><div class="lj-result-row"><span>Score</span><strong>75</strong></div><div class="lj-result-row"><span>Classification</span><strong><span class="lj-pill amber">Warm</span></strong></div><div class="lj-result-row"><span>Recommended Action</span><strong>QUALIFY_MORE</strong></div><div class="lj-result-row"><span>Missing Information</span><strong>Authority, Budget</strong></div></div><div class="lj-box"><h5>What happens</h5><p>The system runs the qualification logic again using the updated information. This can change the score, classification, and recommended action.</p></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Updated CRM data</span></div><div class="lj-meta-card"><small>Purpose</small><span>Recalculate qualification with new information.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ Loop or Outcome</strong></div></div></div><div class="workflow-visual-foot">Coded from the supplied Stage 06 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>06</b> Requalify</div>
+              <h3>Recalculate the lead using everything collected so far.</h3>
+              <p>The lead does not return to zero. Existing information remains available while the new answer is incorporated into the next qualification pass.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>State flow</small><strong>WAITING_FOR_REPLY → READY_TO_REQUALIFY → REQUALIFY</strong></div>
+                <div class="workflow-info-row"><small>Recalculated</small><span>Qualification score, classification, recommended action, and remaining missing information.</span></div>
+                <div class="workflow-info-row"><small>Loop condition</small><span>If another important field is missing, the workflow can generate another targeted question.</span></div>
+              </div>
+              <div class="workflow-next"><strong>Next stage →</strong> Continue asking for missing information or reach the current recommended action when enough information is available.</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-panel" id="workflow-panel-7" role="tabpanel">
+          <div class="workflow-detail">
+            <div class="workflow-visual-card"><div class="workflow-visual-head"><strong>Workflow visual · Stage 07</strong><span>Final action</span></div><div class="workflow-visual-body"><div class="lj-titleline"><h4>07. Outcome</h4><span class="lj-chip">Final Action</span></div><div class="lj-process"><div class="lj-node purple"><div class="lj-node-icon">✓</div><strong>Final Evaluation</strong><span>Complete Record</span></div><div class="lj-node orange"><div class="lj-node-icon">↗</div><strong>Recommended Action</strong><span>Next Steps</span></div><div class="lj-node green"><div class="lj-node-icon">L</div><strong>Lead Record</strong><span>Updated</span></div></div><div class="lj-grid"><div class="lj-result"><div class="lj-result-row"><span>Name</span><strong>Juan Dela Cruz</strong></div><div class="lj-result-row"><span>Email</span><strong>juan@example.com</strong></div><div class="lj-result-row"><span>Score</span><strong>85</strong></div><div class="lj-result-row"><span>Classification</span><strong><span class="lj-pill red">Hot</span></strong></div><div class="lj-result-row"><span>Recommended Action</span><strong>DISCOVERY_CALL</strong></div><div class="lj-result-row"><span>Status</span><strong>Ready for Sales</strong></div></div><div class="lj-box"><h5>What happens</h5><p>Once all required information is collected, the system reaches the final qualification outcome and provides a recommended action based on the lead's current state.</p></div></div><div class="lj-meta"><div class="lj-meta-card"><small>Input</small><span>Complete qualification data</span></div><div class="lj-meta-card"><small>Purpose</small><span>Create a structured, actionable lead record.</span></div><div class="lj-meta-card"><small>Next stage</small><strong>→ End</strong></div></div><div class="lj-success">✓ Lead is now fully qualified and ready for the next step.</div></div><div class="workflow-visual-foot">Coded from the supplied Stage 07 reference.</div></div>
+            <article class="workflow-copy">
+              <div class="step-kicker"><b>07</b> Outcome</div>
+              <h3>The end result is an evolving, structured lead record.</h3>
+              <p>Once the required qualification information is available, the workflow reaches the current recommended action. The lead record contains the accumulated business and qualification context rather than only the latest message.</p>
+              <div class="workflow-info">
+                <div class="workflow-info-row"><small>Result</small><strong>Score + classification + recommended action</strong></div>
+                <div class="workflow-info-row"><small>Record</small><span>Business problem, service interest, timeline, authority, budget, and conversation state are preserved as the workflow progresses.</span></div>
+                <div class="workflow-info-row"><small>Design principle</small><span>AI handles interpretation and generation; deterministic automation handles routing, state, and CRM updates.</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="workflow-overview">
+          <strong>The complete qualification loop</strong>
+          <p>Incoming lead → CRM lookup → AI qualification → score / classification → identify missing information → generate follow-up → customer reply → interpret response → update CRM → requalify → recommended action.</p>
         </div>
       </div>
     </div>
@@ -334,20 +780,90 @@
     </div>
   </section>
 
-  <section class="ai-section">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-label">Project Status</div>
-        <h2>Core qualification loop implemented, with final verification and operational branches still defined as next steps.</h2>
-        <p>The project documentation distinguishes working functionality from items that are still being finalized or planned.</p>
+  <section class="ai-section project-status-section">
+    <div class="container project-status-shell">
+      <div class="project-status-top">
+        <div class="section-head">
+          <div class="section-label">Project Status</div>
+          <h2>Core qualification loop implemented, with final verification still in progress.</h2>
+          <p>The core workflow is working. Remaining items focus on final verification, reliability, and future operational improvements.</p>
+        </div>
+
+        <aside class="status-key" aria-label="Project status key">
+          <h3>Status Key</h3>
+          <div class="status-key-list">
+            <div class="status-key-row"><span class="key-dot key-complete"></span><strong>Complete</strong><span>Implemented and working</span></div>
+            <div class="status-key-row"><span class="key-dot key-working"></span><strong>Working</strong><span>Implemented and active</span></div>
+            <div class="status-key-row"><span class="key-dot key-progress"></span><strong>In Progress</strong><span>Final work remaining</span></div>
+            <div class="status-key-row"><span class="key-dot key-partial"></span><strong>Partial</strong><span>Working with known gaps</span></div>
+            <div class="status-key-row"><span class="key-dot key-planned"></span><strong>Planned</strong><span>Planned for later</span></div>
+          </div>
+        </aside>
       </div>
-      <div class="status-grid">
-        <article class="status-card complete"><div class="status-dot">Complete</div><h3>Lead intake & CRM lookup</h3><p>Webhook intake, CRM search, existing/new lead routing, and new lead creation are established.</p></article>
-        <article class="status-card working"><div class="status-dot">Working</div><h3>AI qualification loop</h3><p>Initial qualification, parsing, CRM updates, follow-up generation, reply interpretation, field updates, and requalification are working.</p></article>
-        <article class="status-card inprogress"><div class="status-dot">In progress</div><h3>Budget & final verification</h3><p>Budget response recognition and pending-state cleanup are corrected; the clean end-to-end budget path still needs final verification.</p></article>
-        <article class="status-card inprogress"><div class="status-dot">Partial</div><h3>Reliability handling</h3><p>JSON output is mostly stable, while formal handling for timeouts, quota issues, malformed JSON, and API failures remains to be built.</p></article>
-        <article class="status-card planned"><div class="status-dot">Planned</div><h3>Operational branches</h3><p>Interaction logging, discovery-call booking, sales notification, human review, information sending, nurture, and spam rejection are defined future branches.</p></article>
-        <article class="status-card planned"><div class="status-dot">Planned</div><h3>AI call optimization</h3><p>The current design can use several AI requests per lead interaction; reducing unnecessary calls is a planned architecture improvement.</p></article>
+
+      <div class="status-summary-strip" aria-label="Project status summary">
+        <div class="status-summary"><b>1</b><span>Stable foundation item</span></div>
+        <div class="status-summary"><b>2</b><span>Working items being finalized</span></div>
+        <div class="status-summary"><b>3</b><span>Future reliability and operations</span></div>
+      </div>
+
+      <div class="status-groups">
+        <section class="status-group stable">
+          <div class="status-group-head">
+            <div class="status-group-icon">✓</div>
+            <div><h3>Stable &amp; Complete</h3><p>Core foundation is implemented and working.</p></div>
+          </div>
+          <div class="status-stack">
+            <article class="status-item complete">
+              <div class="status-item-top"><div class="status-item-icon">✓</div><span class="status-item-badge">Complete</span></div>
+              <h4>Lead intake &amp; CRM lookup</h4>
+              <p>Webhook intake, CRM search, existing/new lead routing, and new lead creation are established.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="status-group development">
+          <div class="status-group-head">
+            <div class="status-group-icon">⚙</div>
+            <div><h3>In Development</h3><p>Working features that still need finalization.</p></div>
+          </div>
+          <div class="status-stack">
+            <article class="status-item working">
+              <div class="status-item-top"><div class="status-item-icon">▥</div><span class="status-item-badge">Working</span></div>
+              <h4>AI qualification loop</h4>
+              <p>Qualification, CRM updates, follow-up generation, reply handling, and requalification are working.</p>
+            </article>
+            <article class="status-item progress">
+              <div class="status-item-top"><div class="status-item-icon">◷</div><span class="status-item-badge">In Progress</span></div>
+              <h4>Budget &amp; final verification</h4>
+              <p>Budget handling is corrected; the full end-to-end path still needs final verification.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="status-group planned">
+          <div class="status-group-head">
+            <div class="status-group-icon">◎</div>
+            <div><h3>Planned Next</h3><p>Planned improvements for reliability and operations.</p></div>
+          </div>
+          <div class="status-stack">
+            <article class="status-item partial">
+              <div class="status-item-top"><div class="status-item-icon">◔</div><span class="status-item-badge">Partial</span></div>
+              <h4>Reliability handling</h4>
+              <p>JSON output is stable, but timeout, quota, malformed-response, and API-failure handling still need to be added.</p>
+            </article>
+            <article class="status-item planned">
+              <div class="status-item-top"><div class="status-item-icon">⌘</div><span class="status-item-badge">Planned</span></div>
+              <h4>Operational branches</h4>
+              <p>Logging, booking, sales notifications, human review, nurture, and spam handling are planned next branches.</p>
+            </article>
+            <article class="status-item planned">
+              <div class="status-item-top"><div class="status-item-icon">◇</div><span class="status-item-badge">Planned</span></div>
+              <h4>AI call optimization</h4>
+              <p>Reducing unnecessary AI requests per lead interaction is a planned architecture improvement.</p>
+            </article>
+          </div>
+        </section>
       </div>
     </div>
   </section>
@@ -367,25 +883,175 @@
     </div>
   </section>
 
-  <section class="ai-section">
+
+  <section class="ai-section case-study-expanded">
     <div class="container">
-      <div class="section-head">
-        <div class="section-label">Case Study Summary</div>
-        <h2>From incoming lead to an evolving qualification record.</h2>
-        <p>This project demonstrates how I approached a business process where the hard part is not simply calling an AI model, but connecting AI interpretation to state, routing, CRM data, and repeatable operational logic.</p>
-      </div>
-      <div class="business-grid">
-        <article class="business-block"><h3>My implementation focus</h3><p>Designing the workflow structure, connecting the modules, defining qualification states and routing, shaping structured AI outputs, preserving CRM information, and testing the multi-turn qualification behavior.</p></article>
-        <article class="business-block"><h3>Current boundary</h3><p>The documented project is still being finalized. Future operational actions and formal error handling are intentionally presented as planned rather than as completed functionality.</p></article>
-      </div>
-      <div class="journey-loop" style="margin-top:30px">
-        <div class="journey-loop-head"><strong>End result</strong><span>Lead record evolves with the conversation</span></div>
-        <div class="journey-loop-flow">
-          <span class="loop-node">Incoming lead</span><span class="loop-arrow">→</span>
-          <span class="loop-node">Structured qualification</span><span class="loop-arrow">→</span>
-          <span class="loop-node">Score + classification</span><span class="loop-arrow">→</span>
-          <span class="loop-node highlight">Recommended action</span>
+      <div class="case-intro">
+        <div class="case-intro-copy">
+          <div class="section-head">
+            <div class="section-label">Case Study Summary</div>
+            <h2>From incoming lead to an evolving qualification record.</h2>
+            <p>This project demonstrates how I designed a lead qualification workflow where AI is not used as a standalone chatbot, but as one part of a structured business process. The workflow keeps track of what is already known, identifies what is still missing, generates the next relevant question, interprets the customer's response, updates the CRM, and runs the qualification logic again.</p>
+          </div>
         </div>
+        <aside class="case-summary-card">
+          <small>Case Study Focus</small>
+          <strong>Stateful, multi-turn lead qualification</strong>
+          <p>The lead record becomes more complete with every interaction instead of being scored once and treated as finished.</p>
+        </aside>
+      </div>
+
+      <div class="case-tabs-shell">
+        <div class="case-tabs" role="tablist" aria-label="Case study sections">
+          <button class="case-tab active" type="button" role="tab" aria-selected="true" aria-controls="case-tab-panel-0" data-case-tab="0">Overview</button>
+          <button class="case-tab" type="button" role="tab" aria-selected="false" aria-controls="case-tab-panel-1" data-case-tab="1">Workflow Logic</button>
+          <button class="case-tab" type="button" role="tab" aria-selected="false" aria-controls="case-tab-panel-2" data-case-tab="2">Example & Build</button>
+          <button class="case-tab" type="button" role="tab" aria-selected="false" aria-controls="case-tab-panel-3" data-case-tab="3">Next Steps</button>
+        </div>
+
+        <div class="case-tab-panel active" id="case-tab-panel-0" role="tabpanel">
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">01</span><div><h3>The business problem</h3><p>Lead qualification rarely starts with complete information.</p></div></div>
+                    <div class="case-two-col">
+                      <div class="case-mini"><h4>What a lead may provide first</h4><ul><li>Business problem</li><li>Service interest</li><li>Basic contact details</li></ul></div>
+                      <div class="case-mini"><h4>What may still be missing</h4><ul><li>Timeline</li><li>Budget</li><li>Decision-making authority</li><li>Implementation requirements</li></ul></div>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">02</span><div><h3>My objective</h3><p>Create a qualification workflow that continues across multiple interactions without losing context.</p></div></div>
+                    <div class="case-three-col">
+                      <div class="case-mini"><h4>Capture</h4><p>Receive new lead conversations and identify whether the person is a new or existing lead.</p></div>
+                      <div class="case-mini"><h4>Interpret</h4><p>Use AI to extract qualification information and understand answers to previous questions.</p></div>
+                      <div class="case-mini"><h4>Progress</h4><p>Update CRM state, recalculate the lead, and repeat until enough information is collected.</p></div>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">03</span><div><h3>Implementation approach</h3><p>Separate AI interpretation from deterministic workflow control.</p></div></div>
+                    <div class="responsibility-grid">
+                      <div class="role-card ai"><div class="role-icon">AI</div><h4>AI Intelligence</h4><ul><li>Understand customer messages</li><li>Extract business problem and service interest</li><li>Identify timeline, authority, and budget</li><li>Interpret customer replies</li><li>Generate contextual follow-up questions</li><li>Support scoring and classification</li></ul></div>
+                      <div class="role-card automation"><div class="role-icon">WF</div><h4>Workflow Control</h4><ul><li>Webhook intake</li><li>CRM lookup</li><li>New / existing lead routing</li><li>JSON parsing</li><li>CRM field updates</li><li>Pending-question and state tracking</li><li>Requalification routing</li></ul></div>
+                    </div>
+                  </article>
+        </div>
+
+        <div class="case-tab-panel" id="case-tab-panel-1" role="tabpanel">
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">04</span><div><h3>How the qualification loop works</h3><p>The workflow progressively enriches one lead record instead of restarting on every message.</p></div></div>
+                    <div class="loop-timeline">
+                      <div class="loop-step"><b>1</b><strong>Lead enters</strong><span>Webhook receives identity, source, and latest message.</span></div>
+                      <div class="loop-step"><b>2</b><strong>CRM lookup</strong><span>Conversation ID or email links the message to the correct lead.</span></div>
+                      <div class="loop-step"><b>3</b><strong>AI qualification</strong><span>Available qualification fields are extracted from the conversation.</span></div>
+                      <div class="loop-step"><b>4</b><strong>Missing info</strong><span>The workflow determines what important information is still incomplete.</span></div>
+                      <div class="loop-step"><b>5</b><strong>Follow-up</strong><span>A targeted question is generated and the pending field is stored.</span></div>
+                      <div class="loop-step"><b>6</b><strong>Update CRM</strong><span>The reply is interpreted and the relevant field is updated.</span></div>
+                      <div class="loop-step"><b>7</b><strong>Requalify</strong><span>Score, classification, action, and remaining missing fields are recalculated.</span></div>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">05</span><div><h3>State management</h3><p>Conversation state is what allows the workflow to remain multi-turn.</p></div></div>
+                    <div class="state-track">
+                      <span class="state-chip">READY_TO_QUALIFY</span><span class="state-arrow">→</span>
+                      <span class="state-chip">QUALIFY_MORE</span><span class="state-arrow">→</span>
+                      <span class="state-chip active">WAITING_FOR_REPLY</span><span class="state-arrow">→</span>
+                      <span class="state-chip">READY_TO_REQUALIFY</span><span class="state-arrow">→</span>
+                      <span class="state-chip">REQUALIFY</span>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">06</span><div><h3>Data preservation</h3><p>The CRM acts as persistent lead memory across the qualification cycle.</p></div></div>
+                    <div style="overflow:auto;border:1px solid var(--ai-line);border-radius:14px">
+                      <table class="preserve-table">
+                        <thead><tr><th>Qualification data</th><th>Behavior</th></tr></thead>
+                        <tbody>
+                          <tr><td>Business problem</td><td>Preserved</td></tr>
+                          <tr><td>Service interest</td><td>Preserved</td></tr>
+                          <tr><td>Timeline</td><td>Added or updated</td></tr>
+                          <tr><td>Authority</td><td>Added or updated</td></tr>
+                          <tr><td>Budget</td><td>Added or updated</td></tr>
+                          <tr><td>Qualification score</td><td>Recalculated</td></tr>
+                          <tr><td>Classification</td><td>Recalculated</td></tr>
+                          <tr><td>Recommended action</td><td>Recalculated</td></tr>
+                          <tr><td>Pending question</td><td>Stored while waiting</td></tr>
+                          <tr><td>Conversation state</td><td>Updated throughout the workflow</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </article>
+        </div>
+
+        <div class="case-tab-panel" id="case-tab-panel-2" role="tabpanel">
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">07</span><div><h3>Example qualification journey</h3><p>A simple example of how one lead can become more qualified over time.</p></div></div>
+                    <div class="journey-example">
+                      <div class="conversation-card">
+                        <h4>Conversation</h4>
+                        <div class="bubble lead">“Hi, we're looking for help automating some of our business processes.”</div>
+                        <div class="bubble ai">“What is your target timeline for implementation?”</div>
+                        <div class="bubble lead">“Within the next two months.”</div>
+                        <div class="bubble ai">“Will you be the person making the final decision for this project?”</div>
+                      </div>
+                      <div class="qualification-card">
+                        <h4>Qualification evolves</h4>
+                        <div class="qual-pair"><span>Business Problem</span><strong>Process automation</strong></div>
+                        <div class="qual-pair"><span>Service Interest</span><strong>Automation</strong></div>
+                        <div class="qual-pair"><span>Timeline</span><strong>Within 2 months</strong></div>
+                        <div class="qual-pair"><span>Authority</span><strong>Still missing</strong></div>
+                        <div class="qual-pair"><span>Budget</span><strong>Still missing</strong></div>
+                        <div class="qual-pair"><span>Next action</span><strong>QUALIFY_MORE</strong></div>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">08</span><div><h3>Current implementation</h3><p>The core qualification loop is already implemented and working across the main path.</p></div></div>
+                    <div class="implemented-list">
+                      <div class="implemented-item"><i>✓</i><div><strong>Lead intake & CRM lookup</strong><span>Webhook intake, CRM search, existing/new routing, and lead creation.</span></div></div>
+                      <div class="implemented-item"><i>✓</i><div><strong>AI qualification</strong><span>Conversation analysis and structured qualification extraction.</span></div></div>
+                      <div class="implemented-item"><i>✓</i><div><strong>Follow-up generation</strong><span>Missing-field detection and contextual next-question generation.</span></div></div>
+                      <div class="implemented-item"><i>✓</i><div><strong>Reply interpretation</strong><span>Customer replies are interpreted against the pending qualification context.</span></div></div>
+                      <div class="implemented-item"><i>✓</i><div><strong>CRM updates</strong><span>Newly collected information is written back to the existing lead record.</span></div></div>
+                      <div class="implemented-item"><i>✓</i><div><strong>Requalification</strong><span>Updated CRM information is used to recalculate score, classification, and action.</span></div></div>
+                    </div>
+                  </article>
+        </div>
+
+        <div class="case-tab-panel" id="case-tab-panel-3" role="tabpanel">
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">09</span><div><h3>Current development boundary</h3><p>The workflow is still being finalized for production-level reliability and downstream operations.</p></div></div>
+                    <div class="boundary-grid">
+                      <div class="boundary-card"><h4>Final verification</h4><ul><li>Clean end-to-end budget path verification</li><li>Consistent behavior across qualification fields</li><li>Pending-state cleanup validation</li></ul></div>
+                      <div class="boundary-card"><h4>Planned operational work</h4><ul><li>API failure and timeout handling</li><li>Malformed JSON and quota handling</li><li>Retry logic and interaction logging</li><li>Human review and sales notifications</li><li>Discovery-call booking and nurture actions</li><li>AI request optimization</li></ul></div>
+                    </div>
+                  </article>
+                  <article class="case-block">
+                    <div class="case-block-head"><span class="case-num">10</span><div><h3>Key design decisions</h3><p>The architecture is intentionally designed around control, continuity, and incremental enrichment.</p></div></div>
+                    <div class="decision-grid">
+                      <div class="decision-card"><h4>AI does not control everything</h4><p>AI interprets language while automation controls routing, state, and CRM actions.</p></div>
+                      <div class="decision-card"><h4>Qualification is progressive</h4><p>A lead can provide information over several interactions instead of all at once.</p></div>
+                      <div class="decision-card"><h4>CRM is the memory layer</h4><p>Each interaction enriches the same lead record instead of creating disconnected conversations.</p></div>
+                      <div class="decision-card"><h4>Missing information drives the next question</h4><p>The workflow asks for what is still required rather than using generic follow-ups.</p></div>
+                      <div class="decision-card"><h4>Requalification uses accumulated context</h4><p>Every new answer improves the existing record instead of restarting the qualification process.</p></div>
+                    </div>
+                  </article>
+                  <div class="end-result-card">
+                    <div class="end-result-inner">
+                      <small>End Result</small>
+                      <h3>The lead record evolves with the conversation.</h3>
+                      <p>The workflow continuously turns new customer context into a more complete, structured, and actionable qualification record.</p>
+                      <div class="end-flow">
+                        <span class="end-node">Lead Arrives</span><span class="end-arrow">→</span>
+                        <span class="end-node">Identify Lead</span><span class="end-arrow">→</span>
+                        <span class="end-node">Extract Data</span><span class="end-arrow">→</span>
+                        <span class="end-node">Store CRM State</span><span class="end-arrow">→</span>
+                        <span class="end-node">Ask Follow-up</span><span class="end-arrow">→</span>
+                        <span class="end-node">Interpret Reply</span><span class="end-arrow">→</span>
+                        <span class="end-node">Update CRM</span><span class="end-arrow">→</span>
+                        <span class="end-node">Requalify</span><span class="end-arrow">→</span>
+                        <span class="end-node final">Recommended Action</span>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -400,6 +1066,43 @@
 
 <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><span class="brand-mark">JS</span><span class="brand-text"><strong>Jefferson Sapuay</strong><small>IT Functional Consultant</small></span></div><nav class="footer-nav"><a href="index.html#home">Home</a><a href="index.html#about">About</a><a href="index.html#expertise">Expertise</a><a href="projects.html">Projects</a><a href="index.html#experience">Experience</a><a href="index.html#certifications">Certifications</a><a href="index.html#contact">Contact</a></nav><small>© <span id="year"></span> Jefferson Sapuay. All rights reserved.</small></div></footer>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('[data-workflow-tab]');
+    const panels = document.querySelectorAll('.workflow-panel');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        const index = tab.getAttribute('data-workflow-tab');
+        tabs.forEach(function(t){
+          const active = t === tab;
+          t.classList.toggle('active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(function(panel, i){
+          panel.classList.toggle('active', String(i) === index);
+        });
+      });
+    });
+
+
+    const caseTabs = document.querySelectorAll('[data-case-tab]');
+    const casePanels = document.querySelectorAll('.case-tab-panel');
+    caseTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        const index = tab.getAttribute('data-case-tab');
+        caseTabs.forEach(function(t){
+          const active = t === tab;
+          t.classList.toggle('active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        casePanels.forEach(function(panel, i){
+          panel.classList.toggle('active', String(i) === index);
+        });
+      });
+    });
+  });
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
